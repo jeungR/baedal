@@ -3,6 +3,7 @@ package com.bigdata.DTO;
 public class OrderReportDTO {
 
 	String order_code;
+	String customer_code;
 	String customer_name;
 	String customer_mobile;
 	String customer_address;
