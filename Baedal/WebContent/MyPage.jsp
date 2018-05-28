@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<%@include file="/resources/module/menubar.jsp"%>
+
 <h3>주문 히스토리</h3>
 <table border="1">
 <tr><td>주문번호</td>
