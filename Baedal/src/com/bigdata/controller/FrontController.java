@@ -53,7 +53,7 @@ public class FrontController extends HttpServlet {
 		case("/MemberCeo_IdCheck.do"):
 			Command = new MemberCeo_IdCheckCommand();
 			Command.execute(request, response);
-			viewPage = "MemberCEO.jsp";
+			viewPage = "MemberCEO_IdCheck.jsp";
 			break;
 		case("/MemberCeo_CeoInsert.do"):
 			Command = new MemberCeo_CeoInsertCommand();
