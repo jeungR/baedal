@@ -29,7 +29,7 @@
 	<td colspan = "3"><hr><br></td>
 	</tr>
 	<tr>
-	<td colspan = "3"><h1>사업장 정보</h1></td>
+	<td colspan = "3" align=center><h1>사업장 정보</h1></td>
 	</tr>
 <tr>
 	<td>상호명 : </td>
