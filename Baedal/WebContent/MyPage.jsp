@@ -10,7 +10,7 @@
 
 <h3>주문 히스토리</h3>
 <table border="1">
-<tr><td>주문번호</td>
+<tr align = "center"><td>주문번호</td>
 	<td>상호명</td>
 	<td>메뉴</td>
 	<td>수량</td>

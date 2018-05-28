@@ -41,7 +41,7 @@
 
 <table>
 <tr>
-	<td colspan="180"></td><td><input type = "submit" value ="확인"></td>
+	<td colspan="180"></td><td><a href="Login.jsp"><input type = "submit" value ="확인"></a></td>
 </tr>	
 </table>
 
