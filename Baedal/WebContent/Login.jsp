@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,40 +7,31 @@
 <title>로그인 페이지</title>
 </head>
 <body>
-<form action = "" method = post> //수정
-<table border = "1">
-<tr>
-<td colspan="2"><input type = "radio" name = "login" value = "customer">고객
-	<input type = "radio" name = "login" value = "ceo">공급자</td>
-	</tr>
-	<tr>
-<td><h1>ID</h1></td>
-<td><h1><input type = "text" name = "id"></h1></td></tr>
-<tr>
-<td><h1>Password</h1></td>
-<td><h1><input type = "password" name = "password"></h1></td>
-</tr>
-<table>
-<tr><td>회원가입</td></tr>
-</table>
+	<form action="" method=post>
+		<table border="1">
+			<tr>
+				<td><input type="radio" name="login" value="customer">고객</td>
+				<td><input type="radio" name="login" value="ceo">공급자</td>
+			</tr>
+			<tr>
+				<td align=center><h3>ID</h3></td>
+				<td><h3>
+						<input type="text" name="id">
+					</h3></td>
+			</tr>
+			<tr>
+				<td><h3>Password</h3></td>
+				<td><h3>
+						<input type="password" name="password">
+					</h3></td>
+			</tr>
+			<tr>
+				<td align=center><input type=submit value='회원가입'></td>
+				<td align=right><input type=submit value='확인'></td>
+			</tr>
 
- 
+		</table>
 
-
-
-
-
-
-
-
-</tr>
-
-
-
-
-
-
-</table>
-</form>
+	</form>
 </body>
 </html>
