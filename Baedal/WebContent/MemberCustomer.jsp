@@ -7,6 +7,45 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>고객 회원가입</h3>
+<table>
+<tr>
+	<td>이름</td>
+	<td><input type = "text" name = "name" size="15"></td>
+</tr>
+<tr>
+	<td>ID</td>
+	<td><input type = "text" name = "id" size="15">
+	<input type = "submit" value = "중복확인"></td>
+</tr>
+<tr>
+	<td>PW</td>
+	<td><input type = "password" name = "pw" size="15"></td>
+</tr>
+<tr>
+	<td>PW확인</td>
+	<td><input type = "password" name = "pwcheck" size="15"></td>
+</tr>
+<tr>
+	<td>Mobile</td>
+	<td><input type = "text" name = "mobile" size="25"></td>
+</tr>
+<tr>
+	<td>주소</td>
+	<td><input type = "text" name = "address" size = "50"></td>
+</tr>
+
+</table> <br>
+	<input type="checkbox" name = "check">
+	문자를 통한 정보수신에 동의 합니다. (필수)<br>
+
+<table>
+<tr>
+	<td colspan="180"></td><td><input type = "submit" value ="확인"></td>
+</tr>	
+</table>
+
+
 
 </body>
 </html>

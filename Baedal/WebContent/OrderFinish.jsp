@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h3>주문완료</h3>
+주문이 완료되었습니다 ^________^
 </body>
 </html>

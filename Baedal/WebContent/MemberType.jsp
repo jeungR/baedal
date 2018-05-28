@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<table align = center>
+<tr align = center>
+<td><a href="MemberCustomer.jsp"><input type = "submit" value = "고객 회원가입"></a></td>
+</tr>
+<tr align = center>
+<td><a href="MemberCEO.jsp"><input type = "submit" value = "공급자 회원가입"></a></td>
+</tr>
+</table>
 </body>
 </html>
