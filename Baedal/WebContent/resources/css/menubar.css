@@ -14,6 +14,7 @@ li {
 li a {
     display: block;
     color: white;
+    font-size: 16px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -26,3 +27,6 @@ li a:hover:not(.active) {
 .active {
     background-color: #4CAF50;
 }
+
+/* Rules for icon sizes: */
+.material-icons.md-19 { font-size: 19px; }

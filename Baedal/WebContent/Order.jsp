@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<%@include file="/resources/module/menubar.jsp"%>
 
 	<form action="" method=post>
 		<h2>장바구니(주문내역)</h2>

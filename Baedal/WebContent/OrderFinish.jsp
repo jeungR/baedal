@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<%@include file="/resources/module/menubar.jsp"%>
+
 <h3>주문완료</h3>
 주문이 완료되었습니다 ^________^
 </body>
