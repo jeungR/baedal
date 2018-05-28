@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="" method=post>
+	<form action="OrderFinish" method=post>
 		<h2>장바구니(주문내역)</h2>
 		<table border=1>
 			<tr>
