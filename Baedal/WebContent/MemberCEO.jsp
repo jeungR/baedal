@@ -4,9 +4,59 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>공급자 회원가입</title>
 </head>
 <body>
 
+<form action = "*" method="post"> 
+
+<Table>
+<tr>	
+<br><br>
+	<td>ID : </td>
+	<td><input type = text name = id size = 20></td>
+	<td><input type = submit value = "중복확인"><br></td>
+</tr>
+<tr>
+	<td>비밀번호 : </td>
+	<td colspan="2"><input type = password name = password size = 20><br></td>
+</tr>
+<tr>
+	<td>비밀번호 확인 : </td>
+	<td colspan="2"><input type = password name = passwordcheck size = 20><br><br></td>
+</tr>
+<tr>
+	<td colspan = "3"><hr><br></td>
+	</tr>
+	<tr>
+	<td colspan = "3"><h1>사업장 정보</h1></td>
+	</tr>
+<tr>
+	<td>상호명 : </td>
+	<td><input type = text name = restaurant size = 20></td>
+	<td><input type = "submit" value = "사진첨부"><a href=""></a><br></td>
+</tr>
+<tr>
+	<td> 업종 : </td>
+	<td><select name = "category"> <!-- combobox 선택창 -->
+			<option>한식</option>
+			<option>중식</option>
+			<option>양식</option>
+			<option>일식</option>
+		</select> <br></td>
+</tr>
+<tr>
+	<td>주소 : </td>
+	<td colspan="2"><input type = text name = Address size = 50><br></td>
+</tr>
+<tr>
+	<td>전화번호 : </td>
+	<td colspan="2"><input type = text name = Tel size = 20><br></td>
+</tr>
+<tr>
+	<td colspan = "2"><input type = "checkbox" name = "agree"> 정보이용에 동의합니다.(필수)</td>
+	<td><input type = submit value = "확인"></td>
+	</tr>
+</Table>
 </body>
 </html>
