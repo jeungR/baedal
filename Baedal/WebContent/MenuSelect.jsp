@@ -10,7 +10,7 @@
 <%@include file="/resources/module/menubar.jsp"%>
 <table align = center>
    <tr>
-   		<td><img src="C:\Users\Administrator\Desktop"></td>
+   		<td><img src="C:\Users\Administrator\Desktop\31.png"></td>
   </tr>
   <tr>
   	<td>메뉴이름</td><!-- 이거 원래는 받아오는거 -->
