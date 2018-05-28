@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.command.Command;
-import com.bigdata.command.Login_LoginCheckCommand;
+import com.bigdata.command.Login_LoginCeoCommand;
+import com.bigdata.command.Login_LoginCustomerCommand;
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
 import com.bigdata.command.MemberCeo_IdCheckCommand;
 
@@ -41,8 +42,13 @@ public class FrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch (com) {
-		case("/LoginCheck.do"):
-			Command = new Login_LoginCheckCommand();
+		case("/Login_LoginCustomer.do"):
+			Command = new Login_LoginCustomerCommand();
+			Command.execute(request, response);
+			viewPage = "Login.jsp";
+			break;
+		case("/Login_LoginCeo.do"):
+			Command = new Login_LoginCeoCommand();
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
 			break;

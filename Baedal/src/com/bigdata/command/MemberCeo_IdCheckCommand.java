@@ -9,8 +9,6 @@ public class MemberCeo_IdCheckCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
 		String id = request.getParameter("id");
 		
 		MemberCeoDAO ceoDAO = new MemberCeoDAO();
