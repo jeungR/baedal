@@ -16,13 +16,13 @@
 			<tr>
 				<td align=center><h3>ID</h3></td>
 				<td><h3>
-						<input type="text" name="id">
+						<input type="text" name="id" required>
 					</h3></td>
 			</tr>
 			<tr>
 				<td><h3>Password</h3></td>
 				<td><h3>
-						<input type="password" name="password">
+						<input type="password" name="password" required>
 					</h3></td>
 			</tr>
 			<tr>

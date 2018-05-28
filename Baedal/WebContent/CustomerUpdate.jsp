@@ -11,7 +11,7 @@
 <table>
 <tr>
 	<td>이름</td>
-	<td><input type = "text" name = "name" size="15"></td>
+	<td><input type = "text" name = "name" size="15" required></td>
 </tr>
 <tr>
 	<td>ID</td>
@@ -19,19 +19,19 @@
 </tr>
 <tr>
 	<td>PW</td>
-	<td><input type = "password" name = "pw" size="15"></td>
+	<td><input type = "password" name = "pw" size="15" required></td>
 </tr>
 <tr>
 	<td>PW확인</td>
-	<td><input type = "password" name = "pwcheck" size="15"></td>
+	<td><input type = "password" name = "pwcheck" size="15" required></td>
 </tr>
 <tr>
 	<td>Mobile</td>
-	<td><input type = "text" name = "mobile" size="25"></td>
+	<td><input type = "text" name = "mobile" size="25" required></td>
 </tr>
 <tr>
 	<td>주소</td>
-	<td><input type = "text" name = "address" size = "50"></td>
+	<td><input type = "text" name = "address" size = "50" required></td>
 </tr>
 
 </table> <br>

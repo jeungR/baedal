@@ -1,6 +1,8 @@
 package com.bigdata.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.command.Command;
+import com.bigdata.command.Login_LoginCheckCommand;
+import com.bigdata.command.MemberCeo_CeoInsertCommand;
+import com.bigdata.command.MemberCeo_IdCheckCommand;
 
 /**
  * Servlet implementation class BFrontController
@@ -27,6 +32,8 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
 		String viewPage = null;
 		Command Command = null;
 		String uri = request.getRequestURI();
@@ -34,11 +41,25 @@ public class FrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch (com) {
-		case("/write_view.do"):
-			//Command = new ****Command();
+		case("/LoginCheck.do"):
+			Command = new Login_LoginCheckCommand();
 			Command.execute(request, response);
-			viewPage = "write_view.jsp";
+			viewPage = "Login.jsp";
 			break;
+		case("/MemberType.do"):
+			Command.execute(request, response);
+			viewPage = "MemberType.jsp";
+			break;
+		case("/MemberCeo_IdCheck.do"):
+			Command = new MemberCeo_IdCheckCommand();
+			Command.execute(request, response);
+			viewPage = "MemberCEO.jsp";
+			break;
+		case("/MemberCeo_CeoInsert.do"):
+			Command = new MemberCeo_CeoInsertCommand();
+			Command.execute(request, response);
+			viewPage = "Login.jsp";
+			break; //여기까지
 		case("/write.do"):
 			//Command = new ****Command();
 			Command.execute(request, response);
@@ -49,6 +70,8 @@ public class FrontController extends HttpServlet {
 			break;
 		}
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);  //보냄. controller 역할 끝
+		dispatcher.forward(request, response);
 	}
 
 	/**

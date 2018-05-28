@@ -18,11 +18,11 @@
 </tr>
 <tr>
 	<td>비밀번호 : </td>
-	<td colspan="2"><input type = password name = password size = 20><br></td>
+	<td colspan="2"><input type = password name = password size = 20 required><br></td>
 </tr>
 <tr>
 	<td>비밀번호 확인 : </td>
-	<td colspan="2"><input type = password name = passwordcheck size = 20><br><br></td>
+	<td colspan="2"><input type = password name = passwordcheck size = 20 required><br><br></td>
 </tr>
 <tr>
 	<td colspan = "3"><hr><br></td>
@@ -32,7 +32,7 @@
 	</tr>
 <tr>
 	<td>상호명 : </td>
-	<td><input type = text name = restaurant size = 20></td>
+	<td><input type = text name = restaurant size = 20 required></td>
 	<td><input type = "submit" value = "사진첨부"><a href=""></a><br></td>
 </tr>
 <tr>
@@ -46,11 +46,11 @@
 </tr>
 <tr>
 	<td>주소 : </td>
-	<td colspan="2"><input type = text name = Address size = 50><br></td>
+	<td colspan="2"><input type = text name = Address size = 50 required><br></td>
 </tr>
 <tr>
 	<td>전화번호 : </td>
-	<td colspan="2"><input type = text name = Tel size = 20><br></td>
+	<td colspan="2"><input type = text name = Tel size = 20 required><br></td>
 </tr>
 <tr>
 	<td colspan = "2"></td>
