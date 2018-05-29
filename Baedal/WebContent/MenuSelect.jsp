@@ -17,7 +17,7 @@ String imagepath = application.getContextPath() + "/resources/image/";
 
 <h1>주 메뉴</h1>
 <div class="gallery">
-  <c:forEach items= "${MenuSelect }" var="item">
+  <c:forEach items= "${mainMenuDTOs }" var="item">
   <a target="_blank" href="<%=imagepath %>${item.image}">
     <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   </a>
@@ -31,7 +31,7 @@ String imagepath = application.getContextPath() + "/resources/image/";
 
 <h1>사이드</h1>
 <div class="gallery">
-<c:forEach items= "${SubMenuSelect }" var="item">
+<c:forEach items= "${subMenuDTOs }" var="item">
   <a target="_blank" href="<%=imagepath %>/resources/image/chicken.jpg">
     <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   </a>

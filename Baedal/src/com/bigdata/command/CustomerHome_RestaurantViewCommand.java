@@ -17,7 +17,7 @@ public class CustomerHome_RestaurantViewCommand implements Command {
 		String type = request.getParameter("type");
 		
 		CustomerHomeDAO cHDao = new CustomerHomeDAO();
-		ArrayList<RestaurantDTO> dtos = cHDao.list();
+		ArrayList<RestaurantDTO> dtos = cHDao.list(type);
 		request.setAttribute("list", dtos);
 		
 		//RestaurantDTO dto = cHDao.RestaurantView(type);

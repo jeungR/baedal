@@ -24,8 +24,8 @@ import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
-import com.bigdata.command.MenuSelect_SubMenuViewCommand;
 import com.bigdata.command.MyPage_HistorySearchCommand;
+import com.bigdata.command.Order_BasketSearchCommand;
 
 /**
  * Servlet implementation class BFrontController
@@ -138,7 +138,6 @@ public class FrontController extends HttpServlet {
 			break;
 		case("/MenuSelect_MenuViewCommand.do"):
 			Command = new MenuSelect_MenuViewCommnad();
-			Command = new MenuSelect_SubMenuViewCommand();
 			Command.execute(request, response);
 			viewPage = "MenuSelect.jsp";
 			break;
