@@ -11,11 +11,11 @@ public class MyPage_UserInfoSearchCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String userId = (String) request.getSession().getAttribute("userId");
+		String customerId = (String) request.getSession().getAttribute("customerId");
 		String vip = request.getParameter("vip");
 		
 		MyPageDAO dao = new MyPageDAO();
-		CustomerDTO dto = dao.UserInfoSearch(userId, vip);
+		CustomerDTO dto = dao.UserInfoSearch(customerId);
 		
 		request.setAttribute("MyPage", dto);
 	}

@@ -34,8 +34,10 @@ public class MyPageDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select order.code, restaurant.name, food.Name, menu.number, order.totalprice, order.startdate, order.ok from order, menu, food, restaurant ";
-//			String query2 = "Where order.code = menu.order_code and  ";
+			String query = "select order.code, restaurant.name, food.Name, menu.number, order.totalprice, order.startdate, order.ok "
+					+ "from order, menu, food, restaurant "
+					+ "where order.code = menu.order_code and menu.food_code = food.code and food.restaurant_code = restaurant.code ";
+
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
@@ -68,7 +70,7 @@ public class MyPageDAO {
 
 	}
 
-	public CustomerDTO UserInfoSearch(String userId, String vip) {
+	public CustomerDTO UserInfoSearch(String customerId) {
 			CustomerDTO dto = null; //데이터 한줄씩 보임
 			Connection connection = null; //연결
 			PreparedStatement preparedStatement = null; //준비
@@ -77,11 +79,17 @@ public class MyPageDAO {
 			try {
 				connection = dataSource.getConnection();
 				
-				String query = "select id, vip from customer where id = ? and vip = ? ";
+				String query = "select id from customer where id = ? ";
 				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, userId);
-				preparedStatement.setString(2, vip);
+				preparedStatement.setString(1, customerId);
 				resultSet = preparedStatement.executeQuery();
+				
+				while(resultSet.next()) { //테이블 구성한 대로 
+//					String id = resultSet.getString("id");
+//					String vip = resultSet.getString("vip");
+					
+//					dto = new CustomerDTO(customerId);
+				}
 				
 			} catch (Exception e) {
 				e.printStackTrace();
