@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.Command;
+import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
@@ -65,6 +67,16 @@ public class FrontController extends HttpServlet {
 			Command = new MemberCeo_CeoInsertCommand();
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
+			break; //여기까지
+		case("/MemberCeo_CeoUpdate.do"):
+			Command = new CeoUpdate_CeoUpdateCommand();
+			Command.execute(request, response);
+			viewPage = "CeoUpdate.jsp";
+			break; //여기까지
+		case("/MemberCustomer_CustomerUpdate.do"):
+			Command = new CustomerUpdate_CustomerUpdateCommnad();
+			Command.execute(request, response);
+			viewPage = "CustomerUpdate.jsp";
 			break; //여기까지
 		case("/write.do"):
 			//Command = new ****Command();
