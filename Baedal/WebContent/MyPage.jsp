@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/resources/module/loginSession.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,7 +29,6 @@
 	<td>2018-05-28</td>
 	<td>배달완료</td>
 </tr>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<c:forEach var="item" items="${HistorySearch }" >
 <tr>
 	<td>${item.order_code }</td>
@@ -47,7 +47,7 @@
 <table>
 <tr><td>ID : </td><td><input type = "text" name = id value="${customerId}" readonly="readonly"></td><td><a href="CustomerUpdate.jsp"><input type = "submit" value = "회원정보수정"></a></td>
 </tr>
-<tr><td>등급 : </td><td><input type = "text" name = vip value="${dto.vip}" readonly="readonly"></td>
+<tr><td>등급 : </td><td><input type = "text" name = vip value="${MyPage.vip }" readonly="readonly"></td>
 </tr>
 </table>
 </body>

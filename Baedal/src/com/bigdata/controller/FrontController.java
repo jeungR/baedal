@@ -24,7 +24,6 @@ import com.bigdata.command.MemberCustomer_UserInsertCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
 import com.bigdata.command.MyPage_HistorySearchCommand;
-import com.bigdata.command.MyPage_UserInfoSearchCommand;
 
 /**
  * Servlet implementation class BFrontController
@@ -139,11 +138,7 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "MyPage.jsp";
 			break;
-		case("/MyPage_UserInfoSearch.do"):
-			Command = new MyPage_UserInfoSearchCommand();
-			Command.execute(request, response);
-			viewPage = "MyPage.jsp";
-			break;
+
 		default:
 			break;
 		}

@@ -26,7 +26,7 @@ public class MyPageDAO {
 	}
 
 	public ArrayList<HistoryDTO> HistorySearch(String customer_code) { // 데이터 쌓는 메소드
-		ArrayList<HistoryDTO> dtos = new ArrayList<HistoryDTO>();
+		ArrayList<HistoryDTO> dtos = null;
 		Connection connection = null; // 연결
 		PreparedStatement preparedStatement = null; // 준비
 		ResultSet resultSet = null; // 가져오는 것
@@ -34,13 +34,15 @@ public class MyPageDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select order.code, restaurant.name, food.Name, menu.number, order.totalprice, order.startdate, order.ok "
-					+ "from order, menu, food, restaurant "
-					+ "where order.code = menu.order_code and menu.food_code = food.code and food.restaurant_code = restaurant.code ";
+			String query = "select baedal.order.code, baedal.restaurant.name, baedal.food.Name, baedal.menu.number, baedal.order.totalprice, baedal.order.startdate, baedal.order.ok "
+					+ "from baedal.order, menu, food, restaurant "
+					+ "where baedal.order.customer_code=? and baedal.order.code = menu.order_code and menu.food_code = food.code and food.restaurant_code = restaurant.code ";
 
 			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, customer_code);
 			resultSet = preparedStatement.executeQuery();
 
+			dtos = new ArrayList<HistoryDTO>();
 			while (resultSet.next()) { // 보안사항 추가
 				String order_code = resultSet.getString("order.code");
 				String restaurtant_name = resultSet.getString("restaurant.name");
@@ -70,7 +72,7 @@ public class MyPageDAO {
 
 	}
 
-	public CustomerDTO UserInfoSearch(String customerId, String vip) {
+	public CustomerDTO UserInfoSearch(String customerId) {
 			CustomerDTO dto = null; //데이터 한줄씩 보임
 			Connection connection = null; //연결
 			PreparedStatement preparedStatement = null; //준비
@@ -79,14 +81,16 @@ public class MyPageDAO {
 			try {
 				connection = dataSource.getConnection();
 				
-				String query = "select id, vip from customer where id = " + customerId;
+				String query = "select id, vip from customer where id = ?";
 				preparedStatement = connection.prepareStatement(query);
 				preparedStatement.setString(1, customerId);
-				preparedStatement.setString(2, vip);
 				resultSet = preparedStatement.executeQuery();
 				
-//				String vip = resultSet.getString("vip");
-//				dto = new CustomerDTO(vip);
+				while(resultSet.next()) {
+					String vip = resultSet.getString("vip");
+					dto = new CustomerDTO();
+					dto.setVip(vip);
+				}
 				
 			} catch (Exception e) {
 				e.printStackTrace();
