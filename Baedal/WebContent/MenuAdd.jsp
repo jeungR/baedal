@@ -23,10 +23,8 @@
 			<tr>
 				<td>카테고리</td>
 				<td><select name="type">
-						<option>한식</option>
-						<option>중식</option>
-						<option>양식</option>
-						<option>일식</option>
+						<option>주메뉴</option>
+						<option>사이드</option>
 					</select></td>
 			</tr>
 			<tr>

@@ -33,7 +33,14 @@
     <td>${item.customer_address}</td>
     <td>${item.food_name}</td>
     <td>${item.menu_number}</td>
-    <td><input type="button" value="거절" /><input type="button" value="확인" /></td>
+    <c:if test="${item.order_ok eq 0}">
+    <td><input type="button" value="거절" onclick="location.href='CEOHome_OrderOk.do?code=${item.order_code}&ok=9'"/>
+    	<input type="button" value="확인" onclick="location.href='CEOHome_OrderOk.do?code=${item.order_code}&ok=1'"/>
+    </td>
+    </c:if>
+    <c:if test="${item.order_ok eq 1}">
+    <td>주문처리완료</td>
+    </c:if>
     </tr>
 </c:forEach>
 </table><br>
@@ -48,7 +55,7 @@
     <tr>
     <td>${item.name}</td>
     <td>${item.price}</td>
-    <td><a href="****?code=${item.code}"><input type="button" value="삭제" /></a></td>
+    <td><input type="button" value="삭제" onclick="location.href='CEOHome_MenuInfoDelete.do?code=${item.code}'"/></td>
     </tr>
 </c:forEach>
 </table><br>
