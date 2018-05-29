@@ -151,11 +151,12 @@ public class FrontController extends HttpServlet {
 			Command = new MenuSelect_MenuViewCommnad();
 			Command.execute(request, response);
 			viewPage = "MenuSelect.jsp";
+			break;
 		case("/MenuCheck_View.do"):
 			Command = new MenuCheck_ViewCommand();
 			Command.execute(request, response);
 			viewPage = "MenuCheck.jsp";
-		break;
+			break;
 		default:
 			break;
 		}
