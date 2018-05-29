@@ -9,7 +9,7 @@
 <title>메뉴등록</title>
 </head>
 <body>
-	<form action="CEOHome.jsp" method=post>
+	<form action="MenuAdd_MenuInsert.do" method=post>
 		<table>
 			<tr>
 				<td>메뉴이름</td>
@@ -21,18 +21,19 @@
 			</tr>
 			<tr>
 				<td>카테고리</td>
-				<td><select name="menucategory">
-						<option value="">카테고리선택</option>
-						<option value="어쩌구">어쩌구</option>
-						<option value="저쩌구">저쩌구</option>
-				</select></td>
+				<td><select name="foodtype">
+						<option>한식</option>
+						<option>중식</option>
+						<option>양식</option>
+						<option>일식</option>
+					</select></td>
 			</tr>
 			<tr>
 				<td>예상소요시간</td>
 				<td><input type=text name=cookingtime></td>
 			</tr>
 			<tr>
-				<td><input type=submit value='사진첨부'></td>
+				<td><input type = "file" name = image accept = "image/gif,image/jpeg,image/png" value = "사진첨부"></td>
 				<td><input type=submit value='확인'></td>
 			</tr>
 		</table>
