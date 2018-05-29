@@ -20,19 +20,20 @@ public class MenuAddDAO {
 		}
 	}
 	
-	public void MenuInsert(String menuname, String price, String foodtype, String cookingtime, String image) {
+	public void MenuInsert(String menuname, String price, String foodtype, String cookingtime, String image, String restaurant_code) {
 		Connection connection = null; //연결
 		PreparedStatement preparedStatement = null; //준비
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "insert into food(name, price, type, cookingtime, image) values (?,?,?,?,?)";
+			String query = "insert into food(name, price, type, cookingtime, image, restaurant_code, date) values (?,?,?,?,?,?,now())";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, menuname);
 			preparedStatement.setString(2, price);
 			preparedStatement.setString(3, foodtype);
 			preparedStatement.setString(4, cookingtime);
 			preparedStatement.setString(5, image);
+			preparedStatement.setString(6, restaurant_code);
 			preparedStatement.executeUpdate();
 
 		} catch (Exception e) {

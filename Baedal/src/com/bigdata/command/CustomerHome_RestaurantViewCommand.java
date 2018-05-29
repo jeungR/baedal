@@ -14,14 +14,14 @@ public class CustomerHome_RestaurantViewCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		//String type = request.getParameter("type");
+		String type = request.getParameter("type");
 		
 		CustomerHomeDAO cHDao = new CustomerHomeDAO();
 		ArrayList<RestaurantDTO> dtos = cHDao.list();
 		request.setAttribute("list", dtos);
 		
-		RestaurantDTO dto = cHDao.RestaurantView("한식");
-		request.setAttribute("CustomerHome", dto);
+		//RestaurantDTO dto = cHDao.RestaurantView(type);
+	//	request.setAttribute("CustomerHome", dto);
 		
 	}
 

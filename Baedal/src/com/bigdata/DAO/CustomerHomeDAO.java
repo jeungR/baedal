@@ -3,7 +3,6 @@ package com.bigdata.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -34,7 +33,7 @@ public class CustomerHomeDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select name, image, tip, type from restaurant";
+			String query = "select name, image, tip, type from restaurant ";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -79,7 +78,7 @@ public class CustomerHomeDAO {
 			
 			
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, restaurant_type);
+			//preparedStatement.setString(1, restaurant_type);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()){

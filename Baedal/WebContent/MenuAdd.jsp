@@ -7,12 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메뉴등록</title>
 </head>
-<body>
-	<form action="MenuAdd_MenuInsert.do" method=post>
+<%@include file="/resources/module/menubarCeo.jsp"%>
+	
+	<br />
+	<form action="MenuAdd_MenuInsert.do" method=post enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>메뉴이름</td>
-				<td><input type=text name=menuname></td>
+				<td><input type=text name=name></td>
 			</tr>
 			<tr>
 				<td>가격</td>
@@ -20,7 +22,7 @@
 			</tr>
 			<tr>
 				<td>카테고리</td>
-				<td><select name="foodtype">
+				<td><select name="type">
 						<option>한식</option>
 						<option>중식</option>
 						<option>양식</option>
@@ -28,11 +30,15 @@
 					</select></td>
 			</tr>
 			<tr>
-				<td>예상소요시간</td>
-				<td><input type=text name=cookingtime></td>
+				<td>예상소요시간(분)</td>
+				<td><input type=number name=cookingtime></td>
 			</tr>
 			<tr>
+				<td>사진첨부</td>
 				<td><input type = "file" name = image accept = "image/gif,image/jpeg,image/png" value = "사진첨부"></td>
+			</tr>
+			<tr>
+				<td></td>
 				<td><input type=submit value='확인'></td>
 			</tr>
 		</table>

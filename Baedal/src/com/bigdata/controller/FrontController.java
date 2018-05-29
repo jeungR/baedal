@@ -24,6 +24,7 @@ import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
+import com.bigdata.command.MenuSelect_MenuViewCommnad;
 
 /**
  * Servlet implementation class BFrontController
@@ -59,8 +60,14 @@ public class FrontController extends HttpServlet {
 		case("/Login_LoginCustomer.do"):
 			Command = new Login_LoginCustomerCommand();
 			Command.execute(request, response);
-			viewPage = "Login.jsp";
+			viewPage = "CustomerHome_RestaurantView.do";
 			break;
+		case("/CustomerHome_RestaurantView.do"):
+			Command = new CustomerHome_RestaurantViewCommand();
+			Command.execute(request, response);
+			viewPage = "CustomerHome.jsp";
+			//viewPage = "CeoHome_OrderMenuView.do";
+			break; 
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
 			Command.execute(request, response);
@@ -108,17 +115,12 @@ public class FrontController extends HttpServlet {
 		case("/CEOHome_OrderOk.do"):
 			Command = new CeoHome_OrderOkCommand();
 			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
-			break; 
-		case("/CEOHome_MenuInfoSearch.do"):
-//			Command = new CeoHome_MenuInfoSearchCommand();
-			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
+			viewPage = "CeoHome_OrderMenuView.do";
 			break; 
 		case("/CEOHome_MenuInfoDelete.do"):
 			Command = new CeoHome_MenuInfoDeleteCommand();
 			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
+			viewPage = "CeoHome_OrderMenuView.do";
 			break; 
 		case("/CEOHome_Update.do"): //회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
 			Command.execute(request, response);
@@ -133,17 +135,13 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break;
-		case("/CustomerHome_RestaurantView.do"):
-			Command = new CustomerHome_RestaurantViewCommand();
+		
+		case("/MenuSelect_MenuViewCommand.do"):
+			Command = new MenuSelect_MenuViewCommnad();
 			Command.execute(request, response);
-			viewPage = "CustomerHome.jsp";
-			break; 
-		case("/write.do"):
-			//Command = new ****Command();
-			Command.execute(request, response);
-			viewPage = "list.do";
+			viewPage = "MenuSelect.jsp";
 		break;
-
+		
 		default:
 			break;
 		}

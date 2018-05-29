@@ -10,42 +10,27 @@
 <link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/imageGallary.css" />
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
-
+<%
+String imagepath = application.getContextPath() + "/resources/image/";
+%>
+	
 <table>
-	<c:forEach items = "${list }" var = "dtos">
+<c:forEach items = "${list }" var = "item">
 		<tr>
 		<td>
 		<div class="gallery">
- 		 <a target="_blank" href="<%=application.getContextPath() %>/resources/image/chicken.jpg">
-   		 <img src="<%=application.getContextPath() %>/resources/image/chicken.jpg" alt="chicken" width="300" height="200">
+ 		 <a target="_blank" href="<%=imagepath %>/resources/image/${item.image}">
+   		 <img src="<%=imagepath %>/resources/image/${item.image}" alt="chicken" width="300" height="200">
   		</a>
- 		 <div class="title">${CustomerHome.name}</div>
- 		 <div class="desc">배달팁: 500원</div>
+ 		 <div class="title">${item.name}</div>
+ 		 <div class="desc">배달팁: "${item.tip}" 원</div>
 		</div>
 		</td>
-		<td>
-		<div class="gallery">
- 		 <a target="_blank" href="<%=application.getContextPath() %>/resources/image/chicken.jpg">
-   		 <img src="<%=application.getContextPath() %>/resources/image/chicken.jpg" alt="chicken" width="300" height="200">
-  		</a>
- 		 <div class="title">가게이름</div>
- 		 <div class="desc">배달팁: 500원</div>
-		</div>
-		</td>
-		<td>
-		<div class="gallery">
- 		 <a target="_blank" href="<%=application.getContextPath() %>/resources/image/chicken.jpg">
-   		 <img src="<%=application.getContextPath() %>/resources/image/chicken.jpg" alt="chicken" width="300" height="200">
-  		</a>
- 		 <div class="title">가게이름</div>
- 		 <div class="desc">배달팁: 500원</div>
-		</div>
-		</td>
-	</tr>
-	</c:forEach>
+		</tr>
+</c:forEach>
+		</table>
 	
 
-</table>
 
 
 
