@@ -34,9 +34,9 @@ public class CeoHomeDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "SELECT o.code, c.name, c.mobile, c.address, f.name, m.number\n" + 
+			String query = "SELECT o.code, c.name, c.mobile, c.address, f.name, m.number, o.ok \n" + 
 					"FROM \n" + 
-					"(SELECT `code`, startdate, `time`, customer_code FROM baedal.order WHERE restaurant_code=?) o,\n" + 
+					"(SELECT `code`, startdate, `time`, customer_code, ok FROM baedal.order WHERE restaurant_code=? AND NOT ok=9 ORDER BY startdate DESC) o,\n" + 
 					"(SELECT code, name, mobile, address FROM baedal.customer) c,\n" + 
 					"(SELECT code, name FROM baedal.food WHERE restaurant_code=?) f,\n" + 
 					"(SELECT order_code, food_code, number FROM baedal.menu) m\n" + 
@@ -57,6 +57,7 @@ public class CeoHomeDAO {
 				orderReportDTO.setCustomer_address(resultSet.getString("c.address"));
 				orderReportDTO.setFood_name(resultSet.getString("f.name"));
 				orderReportDTO.setMenu_number(resultSet.getString("m.number"));
+				orderReportDTO.setOrder_ok(resultSet.getString("o.ok"));
 				
 				orderReportDTOs.add(orderReportDTO);
 			}
@@ -74,10 +75,6 @@ public class CeoHomeDAO {
 		}
 		
 		return orderReportDTOs;
-	}
-	
-	public void OrderOK() {
-		
 	}
 	
 	public ArrayList<FoodDTO> MenuInfoSearch(String restaurant_code) {
@@ -119,11 +116,72 @@ public class CeoHomeDAO {
 		return foodDTOs;
 	}
 	
-	public void MenuInfoDelete() {
+	public boolean MenuInfoDelete(String code, String restaurant_code) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "DELETE FROM food WHERE code=? AND restaurant_code=?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, code);
+			preparedStatement.setString(2, restaurant_code);
+			int result = preparedStatement.executeUpdate();
+			
+			if(result!=0) {
+				return true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		return false;
 	}
 	
-	
+	public boolean OrderOK(String code, String ok, String restaurant_code) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "UPDATE baedal.order SET ok=? WHERE code=? AND restaurant_code=?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, ok);
+			preparedStatement.setString(2, code);
+			preparedStatement.setString(3, restaurant_code);
+			int result = preparedStatement.executeUpdate();
+			
+			if(result!=0) {
+				return true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		return false;
+	}
 	
 	
 }

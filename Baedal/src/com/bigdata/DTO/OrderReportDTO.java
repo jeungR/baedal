@@ -10,7 +10,24 @@ public class OrderReportDTO {
 	String food_code;
 	String food_name;
 	String menu_number;
+	String order_ok;
 	
+	public String getCustomer_code() {
+		return customer_code;
+	}
+
+	public void setCustomer_code(String customer_code) {
+		this.customer_code = customer_code;
+	}
+
+	public String getOrder_ok() {
+		return order_ok;
+	}
+
+	public void setOrder_ok(String order_ok) {
+		this.order_ok = order_ok;
+	}
+
 	public OrderReportDTO() {
 		super();
 	}
