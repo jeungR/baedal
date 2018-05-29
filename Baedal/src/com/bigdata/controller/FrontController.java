@@ -14,6 +14,7 @@ import com.bigdata.command.CeoHome_OrderMenuViewCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.Command;
+import com.bigdata.command.CustomerHome_RestaurantViewCommand;
 import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
@@ -23,6 +24,8 @@ import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
+import com.bigdata.command.MenuSelect_SubMenuViewCommand;
+import com.bigdata.command.MyPage_HistorySearchCommand;
 
 /**
  * Servlet implementation class BFrontController
@@ -58,8 +61,14 @@ public class FrontController extends HttpServlet {
 		case("/Login_LoginCustomer.do"):
 			Command = new Login_LoginCustomerCommand();
 			Command.execute(request, response);
-			viewPage = "Login.jsp";
+			viewPage = "CustomerHome_RestaurantView.do";
 			break;
+		case("/CustomerHome_RestaurantView.do"):
+			Command = new CustomerHome_RestaurantViewCommand();
+			Command.execute(request, response);
+			viewPage = "CustomerHome.jsp";
+			//viewPage = "CeoHome_OrderMenuView.do";
+			break; 
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
 			Command.execute(request, response);
@@ -92,7 +101,7 @@ public class FrontController extends HttpServlet {
 		case("/MemberCustomer_IdCheck.do"):
 			Command = new MemberCustomer_IdCheckCommand();
 			Command.execute(request, response);
-			viewPage = "MemberCustomer.jsp";
+			viewPage = "MemberCustomer_IdCheck.jsp";
 			break; 
 		case("/MemberCustomer_UserInsert.do"):
 			Command = new MemberCustomer_UserInsertCommand();
@@ -126,12 +135,18 @@ public class FrontController extends HttpServlet {
 			Command = new MenuAdd_MenuInsertCommand();
 			Command.execute(request, response);
 			viewPage = "CeoHome_OrderMenuView.do";
-			break; 
+			break;
 		case("/MenuSelect_MenuViewCommand.do"):
 			Command = new MenuSelect_MenuViewCommnad();
+			Command = new MenuSelect_SubMenuViewCommand();
 			Command.execute(request, response);
 			viewPage = "MenuSelect.jsp";
-		break;
+			break;
+		case("/MyPage_HistorySearch.do"):
+			Command = new MyPage_HistorySearchCommand();
+			Command.execute(request, response);
+			viewPage = "MyPage.jsp";
+			break;
 		default:
 			break;
 		}

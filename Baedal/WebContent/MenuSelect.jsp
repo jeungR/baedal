@@ -9,57 +9,21 @@
 <link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/imageGallary.css" />
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
+<%
+String imagepath = application.getContextPath() + "/resources/image/";
+%>
 
-<TABLE BORDER="1">
-		<tr>
-			<td>번호</td>
-			<td>이름</td>
-			<td>제목</td>
-			<td>날짜</td>
-			<td>날짜</td>
-			<td>날짜</td>
-			<td>날짜</td>
-			<td>날짜</td>
-		</tr>
-		<tr>
 		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-			<c:forEach items= "${MenuSelect }" var="dto">
-				<tr>
-					<td>${dto.code }</td>
-					<td>${dto.name }</td>
-					<td>${dto.price }</td>
-					<td>${dto.date }</td>
-					<td>${dto.image }</td>
-					<td>${dto.type }</td>
-					<td>${dto.restaurant_code }</td>
-					<td>${dto.cookingtime }</td>
-				</tr>
-			</c:forEach>
-	</TABLE>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <h1>주 메뉴</h1>
-
 <div class="gallery">
-  <a target="_blank" href="<%=application.getContextPath() %>/resources/image/chicken.jpg">
-    <img src="<%=application.getContextPath() %>/resources/image/chicken.jpg" alt="chicken" width="300" height="200">
+  <c:forEach items= "${MenuSelect }" var="item">
+  <a target="_blank" href="<%=imagepath %>${item.image}">
+    <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   </a>
-  <div class="title">가게이름</div>
-  <div class="desc">배달팁: 500원</div>
+  <div class="title">${item.name }</div>
+  <div class="desc">${item.price }</div>
+  </c:forEach>
 </div>
 
 <div style="clear:both;"></div>
@@ -67,11 +31,13 @@
 
 <h1>사이드</h1>
 <div class="gallery">
-  <a target="_blank" href="<%=application.getContextPath() %>/resources/image/chicken.jpg">
-    <img src="<%=application.getContextPath() %>/resources/image/chicken.jpg" alt="chicken" width="300" height="200">
+<c:forEach items= "${SubMenuSelect }" var="item">
+  <a target="_blank" href="<%=imagepath %>/resources/image/chicken.jpg">
+    <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   </a>
-  <div class="title">가게이름</div>
-  <div class="desc">배달팁: 500원</div>
+  <div class="title">${item.name }</div>
+  <div class="desc">${item.price }</div>
+   </c:forEach>
 </div>
 
 
