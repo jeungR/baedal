@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.DAO.CeoUpdateDAO;
-import com.bigdata.DAO.CustomerUpdateDAO;
 
 public class CeoUpdate_CeoUpdateCommand implements Command {
 

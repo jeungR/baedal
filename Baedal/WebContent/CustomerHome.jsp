@@ -17,7 +17,7 @@ String imagepath = application.getContextPath() + "/resources/image/";
 
 <c:forEach items = "${list }" var = "item">
 		<div class="gallery">
- 		 <a target="_blank" href="<%=imagepath %>${item.image}">
+ 		 <a href="MenuSelect_MenuView.do?code=${item.code}">
    		 <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   		</a>
  		 <div class="title">${item.name}</div>
