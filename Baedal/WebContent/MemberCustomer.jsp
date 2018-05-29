@@ -46,7 +46,7 @@
 
 <table>
 <tr>
-	<td colspan="180"></td><td><a href="Login.jsp"><input type = "submit" value ="확인"></a></td>
+	<td colspan="180"></td><td><input type = "submit" value ="확인"></a></td>
 </tr>	
 </table>
 </form>
@@ -57,7 +57,7 @@ function checkId(){
 		alert("id를 입력하세요");
 		return;
 	}
-	url = "MemberCeo_IdCheck.do?id="+document.customerform.id.value;
+	url = "MemberCustomer_IdCheck.do?id="+document.customerform.id.value;
 	open(url, "ID 중복확인", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,width=300,height=200");
 }
 </script>

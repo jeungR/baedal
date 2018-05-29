@@ -10,7 +10,8 @@ public class CustomerUpdate_CustomerUpdateCommnad implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
+		
+		String id = (String) request.getSession().getAttribute("customerid");
 		String password = request.getParameter("pw");
 		String address = request.getParameter("address");
 		String mobile = request.getParameter("mobile");

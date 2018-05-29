@@ -13,6 +13,19 @@ public class HistoryDTO {
 		super();
 	}
 
+	
+	public HistoryDTO(String order_code, String restaurtant_name, String food_name, String menu_number, int totalprice,
+			String startdate, String ok) {
+		super();
+		this.order_code = order_code;
+		this.restaurtant_name = restaurtant_name;
+		this.food_name = food_name;
+		this.menu_number = menu_number;
+		this.totalprice = totalprice;
+		this.startdate = startdate;
+		this.ok = ok;
+	}
+
 	public String getOrder_code() {
 		return order_code;
 	}
