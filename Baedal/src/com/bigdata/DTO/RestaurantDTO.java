@@ -13,6 +13,8 @@ public class RestaurantDTO {
 	String tip;
 	String image;
 	
+	
+	
 
 	public RestaurantDTO(String id, String password, String name, String address, String phone,
 			String type, String tip, String image) {

@@ -13,9 +13,10 @@ import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
 import com.bigdata.command.CeoHome_OrderMenuViewCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
+import com.bigdata.command.CeoUpdate_CeoUpdateViewCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
-import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
+import com.bigdata.command.CustomerUpdate_CustomerUpdateCommand;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
@@ -96,7 +97,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "CEOHome.jsp";
 			break; 
 		case("/MemberCustomer_CustomerUpdate.do"):
-			Command = new CustomerUpdate_CustomerUpdateCommnad();
+			Command = new CustomerUpdate_CustomerUpdateCommand();
 			Command.execute(request, response);
 			viewPage = "Mypage.jsp";
 			break; 
@@ -125,9 +126,14 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "CeoHome_OrderMenuView.do";
 			break; 
-		case("/CEOHome_Update.do"): //회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
+		case("/CEOHome_UpdateView.do"): //회원정보수정 클릭시 ceoview해주러가는길
+			Command = new CeoUpdate_CeoUpdateViewCommand();
 			Command.execute(request, response);
 			viewPage = "CeoUpdate.jsp";
+			break; 	
+		case("/CEOHome_Update.do"): //회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
+			Command.execute(request, response);
+			viewPage = "CeoHome.jsp";
 			break; 
 		case("/CEOHome_MenuAdd.do"): //메뉴추가 클릭시 MenuAdd창으로 넘어가야함
 			Command.execute(request, response);
