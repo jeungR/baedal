@@ -151,7 +151,7 @@ public class FrontController extends HttpServlet {
 		case("/Order_BasketSearch"):
 			Command = new Order_BasketSearchCommand();
 			Command.execute(request, response);
-			viewPage = "MyPage.jsp";
+			viewPage = "Order.jsp";
 			break;
 		default:
 			break;

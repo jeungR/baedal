@@ -30,17 +30,19 @@
 				<td>${item.food_name }</td>
 				<td>${item.basket_number }</td>
 				<td>${item.food_price }</td>
-				<td align=center><input type=submit value='취소'></td>
+				<td align=center><input type="button" value='취소' onclick="location.href='Order_BasketDelete.do?code=${item.code}'"/></td>
 			</tr>
 				</c:forEach>
 		</table>
 		<br>
+			<form action = "MenuSelect.jsp" method="post">
 		<table>
 			<tr>
-				<td><a href="MenuSelect.jsp"><input type=submit value='메뉴추가'></td>
+				<td><input type=submit value='메뉴추가'></td>
 				<td>총 금액 : <input type=text name=total1 size=5></td>
 			</tr>
 		</table>
+				</form>
 		<br>
 		<table>
 			<tr>
