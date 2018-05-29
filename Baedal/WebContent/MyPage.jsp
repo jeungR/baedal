@@ -19,7 +19,9 @@
 	<td>주문시간</td>
 	<td>배달확인</td>
 </tr>
-<tr><td>001</td>
+<!-- 데이터 쓰는 부분      c:forEach는 데이터가 있을 떄까지 반복하는 반복문-->
+<tr>
+	<td>001</td>
 	<td>엽떡</td>
 	<td>엽떡순한맛</td>
 	<td>1</td>
@@ -27,14 +29,25 @@
 	<td>2018-05-28</td>
 	<td>배달완료</td>
 </tr>
+	<c:forEach items="${HistorySearch }" var="dto">
+<tr>
+	<td>${dto.order_code }</td>
+	<td>${dto.restaurtant_name }</td>
+	<td>${dto.food_name }</td>
+	<td>${dto.menu_number }</td>
+	<td>${dto.totalprice }</td>
+	<td>${dto.startdate }</td>
+	<td>${dto.ok }</td>
+</tr>
+</c:forEach>
 </table><br>
 &nbsp;&nbsp;&nbsp;&nbsp;-------------------------------------------------------------------------------<br><br>
 
 <h3>개인정보</h3>
 <table>
-<tr><td>ID : </td><td><input type = "text" name = id readonly="readonly"></td><td><a href="CustomerUpdate.jsp"><input type = "submit" value = "회원정보수정"></a></td>
+<tr><td>ID : </td><td><input type = "text" name = id value="${MyPage.userid}" readonly="readonly"></td><td><a href="CustomerUpdate.jsp"><input type = "submit" value = "회원정보수정"></a></td>
 </tr>
-<tr><td>등급 : </td><td><input type = "text" name = vip readonly="readonly"></td>
+<tr><td>등급 : </td><td><input type = "text" name = vip value="${MyPage.vip}" readonly="readonly"></td>
 </tr>
 </table>
 </body>
