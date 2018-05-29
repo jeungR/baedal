@@ -51,7 +51,7 @@ public class MemberCeoDAO {
 		return false;
 	}
 	
-	public void CeoInsert(String id, String password, String name, String type, String address, String phone, String image) {
+	public void CeoInsert(String id, String password, String name, String type, String address, String phone, String tip, String image) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -59,7 +59,7 @@ public class MemberCeoDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "insert into restaurant(id, password, name, type, address, phone, image) values (?, ?, ?, ?, ?, ?, ?)";
+			String query = "insert into restaurant(id, password, name, type, address, phone, tip, image) values (?, ?, ?, ?, ?, ?, ?, ?)";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, id);
 			preparedStatement.setString(2, password);
@@ -67,7 +67,8 @@ public class MemberCeoDAO {
 			preparedStatement.setString(4, type);
 			preparedStatement.setString(5, address);
 			preparedStatement.setString(6, phone);
-			preparedStatement.setString(7, image);
+			preparedStatement.setString(7, tip);
+			preparedStatement.setString(8, image);
 			preparedStatement.executeUpdate();
 			
 		}catch(Exception e) {

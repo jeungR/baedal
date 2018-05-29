@@ -17,7 +17,7 @@
         <li class="tab"><a href="#login2">사장 로그인</a></li>
     </ul>
     <div id="login" class="form">
-    <form action="Login_LoginCustomer.do">
+    <form action="Login_LoginCustomer.do" method="post">
           <h1>Sign in to 배달</h1>
           <div class="input-field">
             <label for="id">ID</label>
@@ -34,7 +34,7 @@
     </form>
     </div>
     <div id="login2" class="form">
-    <form action="Login_LoginCeo.do">
+    <form action="Login_LoginCeo.do" method="post">
         <h1>Sign in to 배달</h1>
         <div class="input-field">
             <label for="id">ID</label>
