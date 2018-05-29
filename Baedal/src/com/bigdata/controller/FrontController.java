@@ -24,6 +24,7 @@ import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
+import com.bigdata.command.MenuSelect_MenuViewCommnad;
 
 /**
  * Servlet implementation class BFrontController
@@ -128,10 +129,10 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "CeoHome_OrderMenuView.do";
 			break; 
-		case("/write.do"):
-			//Command = new ****Command();
+		case("/MenuSelect_MenuViewCommand.do"):
+			Command = new MenuSelect_MenuViewCommnad();
 			Command.execute(request, response);
-			viewPage = "list.do";
+			viewPage = "MenuSelect.jsp";
 		break;
 
 		default:

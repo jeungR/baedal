@@ -10,6 +10,48 @@
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
 
+<TABLE BORDER="1">
+		<tr>
+			<td>번호</td>
+			<td>이름</td>
+			<td>제목</td>
+			<td>날짜</td>
+			<td>날짜</td>
+			<td>날짜</td>
+			<td>날짜</td>
+			<td>날짜</td>
+		</tr>
+		<tr>
+		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+			<c:forEach items= "${MenuSelect }" var="dto">
+				<tr>
+					<td>${dto.code }</td>
+					<td>${dto.name }</td>
+					<td>${dto.price }</td>
+					<td>${dto.date }</td>
+					<td>${dto.image }</td>
+					<td>${dto.type }</td>
+					<td>${dto.restaurant_code }</td>
+					<td>${dto.cookingtime }</td>
+				</tr>
+			</c:forEach>
+	</TABLE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>주 메뉴</h1>
 
 <div class="gallery">
