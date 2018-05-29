@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
 import com.bigdata.command.CeoHome_OrderMenuViewCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.Command;
+import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
@@ -69,10 +71,20 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "MemberCEO_IdCheck.jsp";
 			break;
-		case("/MemberCeo_CeoInsert.do"):
+		case("/MemberCeo_CeoInsert.do"): 
 			Command = new MemberCeo_CeoInsertCommand();
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
+			break; 
+		case("/MemberCeo_CeoUpdate.do")://ceo 정보수정 클릭시 ceo홈으로 
+			Command = new CeoUpdate_CeoUpdateCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
+			break; 
+		case("/MemberCustomer_CustomerUpdate.do"):
+			Command = new CustomerUpdate_CustomerUpdateCommnad();
+			Command.execute(request, response);
+			viewPage = "Mypage.jsp";
 			break; 
 		case("/MemberCustomer_IdCheck.do"):
 			Command = new MemberCustomer_IdCheckCommand();

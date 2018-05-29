@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form action = "*" method="post" enctype="multipart/form-data"> 
+<form action = "MemberCeo_CeoUpdate.do" method="post" enctype="multipart/form-data"> 
 
 <Table>
 <tr>
@@ -62,5 +62,6 @@
 	<td><input type = submit value = "수정"></td>
 	</tr>
 </Table>
+</form>
 </body>
 </html>
