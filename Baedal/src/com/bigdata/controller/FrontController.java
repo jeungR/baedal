@@ -136,8 +136,12 @@ public class FrontController extends HttpServlet {
 			break;
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);  //보냄. controller 역할 끝
-		dispatcher.forward(request, response);
+		if(viewPage.endsWith(".do")) {
+			response.sendRedirect(viewPage);
+		}else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);  //보냄. controller 역할 끝
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**
