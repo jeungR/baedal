@@ -23,16 +23,16 @@
 		</tr>
 		<tr>
 		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-			<c:forEach items= "${MenuSelect }" var="dto">
+			<c:forEach items= "${dto }" var="item">
 				<tr>
-					<td>${dto.code }</td>
-					<td>${dto.name }</td>
-					<td>${dto.price }</td>
-					<td>${dto.date }</td>
-					<td>${dto.image }</td>
-					<td>${dto.type }</td>
-					<td>${dto.restaurant_code }</td>
-					<td>${dto.cookingtime }</td>
+					<td>${item.code }</td>
+					<td>${item.name }</td>
+					<td>${item.price }</td>
+					<td>${item.date }</td>
+					<td>${item.image }</td>
+					<td>${item.type }</td>
+					<td>${item.restaurant_code }</td>
+					<td>${item.cookingtime }</td>
 				</tr>
 			</c:forEach>
 	</TABLE>

@@ -99,7 +99,7 @@ public class FrontController extends HttpServlet {
 		case("/MemberCustomer_IdCheck.do"):
 			Command = new MemberCustomer_IdCheckCommand();
 			Command.execute(request, response);
-			viewPage = "MemberCustomer.jsp";
+			viewPage = "MemberCustomer_IdCheck.jsp";
 			break; 
 		case("/MemberCustomer_UserInsert.do"):
 			Command = new MemberCustomer_UserInsertCommand();
