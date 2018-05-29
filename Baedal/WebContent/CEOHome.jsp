@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공급자 Home</title>
 </head>
-<body>
+<%@include file="/resources/module/menubarCeo.jsp"%>
+
 <form action = "*" method="post"> 
 
 <p align=center><input type = "text" name = id readonly="readonly">사장님

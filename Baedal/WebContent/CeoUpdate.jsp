@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공급자 회원정보 수정</title>
 </head>
-<body>
+<%@include file="/resources/module/menubarCeo.jsp"%>
 
 <form action = "*" method="post" enctype="multipart/form-data"> 
 

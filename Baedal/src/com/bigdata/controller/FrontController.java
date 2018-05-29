@@ -50,6 +50,10 @@ public class FrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch (com) {
+		case("/logout.do"):
+			request.getSession().invalidate();
+			viewPage = "Login.jsp";
+			break;
 		case("/Login_LoginCustomer.do"):
 			Command = new Login_LoginCustomerCommand();
 			Command.execute(request, response);
