@@ -67,6 +67,7 @@
 	<td><input type = submit value = "확인"></td>
 	</tr>
 </Table>
+</form>
 </body>
 
 <script>

@@ -13,7 +13,7 @@ public class RestaurantDTO {
 	String tip;
 	String image;
 	
-	public RestaurantDTO() {
+	public RestaurantDTO(String name, String image, String tip, String type) {
 		super();
 	}
 

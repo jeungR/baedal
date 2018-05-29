@@ -132,6 +132,11 @@ public class FrontController extends HttpServlet {
 			Command = new MenuAdd_MenuInsertCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
+			break;
+		case("/CustomerHome_RestaurantView.do"):
+			Command = new CustomerHome_RestaurantViewCommand();
+			Command.execute(request, response);
+			viewPage = "CustomerHome.jsp";
 			break; 
 		case("/write.do"):
 			//Command = new ****Command();
