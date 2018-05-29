@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<td>예상소요시간(분)</td>
-				<td><input type=number name=cookingtime></td>
+				<td><input type=number min="0" max="100"  name=cookingtime></td>
 			</tr>
 			<tr>
 				<td>사진첨부</td>
