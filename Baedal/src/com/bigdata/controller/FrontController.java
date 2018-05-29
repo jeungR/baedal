@@ -147,6 +147,10 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "MyPage.jsp";
 			break;
+		
+			
+			
+			
 		default:
 			break;
 		}
