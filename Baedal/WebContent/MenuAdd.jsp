@@ -22,10 +22,11 @@
 			<tr>
 				<td>카테고리</td>
 				<td><select name="menucategory">
-						<option value="">카테고리선택</option>
-						<option value="어쩌구">어쩌구</option>
-						<option value="저쩌구">저쩌구</option>
-				</select></td>
+						<option>한식</option>
+						<option>중식</option>
+						<option>양식</option>
+						<option>일식</option>
+					</select></td>
 			</tr>
 			<tr>
 				<td>예상소요시간</td>
