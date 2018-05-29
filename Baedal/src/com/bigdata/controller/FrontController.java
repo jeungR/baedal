@@ -110,11 +110,6 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
-		case("/CEOHome_MenuInfoSearch.do"):
-//			Command = new CeoHome_MenuInfoSearchCommand();
-			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
-			break; 
 		case("/CEOHome_MenuInfoDelete.do"):
 			Command = new CeoHome_MenuInfoDeleteCommand();
 			Command.execute(request, response);

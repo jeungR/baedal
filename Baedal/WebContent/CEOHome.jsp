@@ -9,44 +9,48 @@
 </head>
 <%@include file="/resources/module/menubarCeo.jsp"%>
 
+
 <form action = "*" method="post"> 
-
-<p align=center><input type = "text" name = id readonly="readonly">사장님
-<input type = "submit" value = "회원정보수정">
-<h3 align=center>주문현황</h3>
-<table border="1" align=center>
-<tr><td align=center>주문번호</td>
-	<td align=center>고객이름</td>
-	<td align=center>핸드폰</td>
-	<td align=center>주소</td>
-	<td align=center>메뉴</td>
-	<td align=center>수량</td>
-	<td align=center>확인</td>
+<p> ${ceoId} 사장님 
+<input type = "submit" value = "회원정보수정" /></p>
+</form>
+<h3>주문현황</h3>
+<table border="1">
+<tr><th>주문번호</th>
+	<th>고객이름</th>
+	<th>핸드폰</th>
+	<th>주소</th>
+	<th>메뉴</th>
+	<th>수량</th>
+	<th>확인</th>
 </tr>
-<tr><td align=center>001</td>
-	<td align=center>선애</td>
-	<td align=center>010</td>
-	<td align=center>하남</td>
-	<td align=center>엽떡매운맛</td>
-	<td align=center>2</td>
-	<td><input type = submit value = "거절">
-		<input type = submit value = "확인"></td>
-</tr>
-</table><br>
-
-<h3 align=center>메뉴정보</h3>
-<table border="1" align=center>
-<tr><td align=center>메뉴</td>
-	<td align=center>가격</td>
-	<td align=center>수정 및 삭제</td>
-</tr>
-<tr><td align=center>엽떡매운맛</td>
-	<td align=center>20,000</td>
-	<td><a href="MenuAdd.jsp"><input type = submit value = "수정">
-		<input type = submit value = "삭제"></td>
+<tr><td>001</td>
+	<td>선애</td>
+	<td>010</td>
+	<td>하남</td>
+	<td>엽떡매운맛</td>
+	<td>2</td>
+	<td><input type = submit value = "거절"/>
+		<input type = submit value = "확인"/></td>
 </tr>
 </table><br>
-<p align=center><a href="MenuAdd.jsp"><input type=submit value='메뉴추가'>
+
+<h3>메뉴정보</h3>
+<table border="1">
+<tr><th>메뉴</th>
+	<th>가격</th>
+	<th>수정</th>
+</tr>
+<tr><td>엽떡매운맛</td>
+	<td>20,000</td>
+	<td><input type = submit value = "삭제"></td>
+</tr>
+</table><br>
+<form action = "MenuAdd.jsp" method="post">
+<p>
+<input type=submit value='메뉴추가'>
+</p>
+</form>
 
 </body>
 </html>
