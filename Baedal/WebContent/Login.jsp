@@ -34,7 +34,7 @@
     </form>
     </div>
     <div id="login2" class="form">
-    <form action="Login_LoginCeo">
+    <form action="Login_LoginCeo.do">
         <h1>Sign in to 배달</h1>
         <div class="input-field">
             <label for="id">ID</label>
