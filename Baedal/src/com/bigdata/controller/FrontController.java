@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
+import com.bigdata.command.CeoHome_OrderMenuViewCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
@@ -58,7 +59,7 @@ public class FrontController extends HttpServlet {
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
 			Command.execute(request, response);
-			viewPage = "CutomerHome.jsp";
+			viewPage = "CeoHome_OrderMenuView.do";
 			break;
 		case("/MemberType.do"): // 클릭에따라 viewpage가 달라짐
 			Command.execute(request, response);
@@ -84,8 +85,8 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
 			break; 
-		case("/CEOHome_OrderReportSearch.do"):
-//			Command = new CeoHome_OrderReportSearchCommand();
+		case("/CeoHome_OrderMenuView.do"):
+			Command = new CeoHome_OrderMenuViewCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
