@@ -20,7 +20,6 @@ import com.bigdata.command.MemberCeo_CeoInsertCommand;
 import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
-import com.bigdata.command.MenuAdd_MenuInfoUpdateCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
 
 /**
@@ -114,11 +113,6 @@ public class FrontController extends HttpServlet {
 			break; 
 		case("/MenuAdd_MenuInsert.do"):
 			Command = new MenuAdd_MenuInsertCommand();
-			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
-			break; 
-		case("/MenuAdd_MenuInfoUpdate.do"): // CEOHome 수정 클릭시 MenuAdd창으로 가야하는데, 이부분확인
-			Command = new MenuAdd_MenuInfoUpdateCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
