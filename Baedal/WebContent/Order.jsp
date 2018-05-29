@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/resources/module/loginSession.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>주문하기 창</title>
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
 
@@ -24,14 +25,24 @@
 				<td>31000</td>
 				<td align=center><input type=submit value='취소'></td>
 			</tr>
+				<c:forEach var="item" items="${BasketSearch }" >
+			<tr>
+				<td>${item.food_name }</td>
+				<td>${item.basket_number }</td>
+				<td>${item.food_price }</td>
+				<td align=center><input type="button" value='취소' onclick="location.href='Order_BasketDelete.do?code=${item.code}'"/></td>
+			</tr>
+				</c:forEach>
 		</table>
 		<br>
+			<form action = "MenuSelect.jsp" method="post">
 		<table>
 			<tr>
 				<td><input type=submit value='메뉴추가'></td>
 				<td>총 금액 : <input type=text name=total1 size=5></td>
 			</tr>
 		</table>
+				</form>
 		<br>
 		<table>
 			<tr>
