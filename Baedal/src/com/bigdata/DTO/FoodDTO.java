@@ -19,7 +19,7 @@ public class FoodDTO {
 	}
 
 	public FoodDTO(String code, String name, int price, Date date, String image, String type, String restaurant_code,
-			Time cookingtime) {
+			String cookingtime) {
 		super();
 		this.code = code;
 		this.name = name;
