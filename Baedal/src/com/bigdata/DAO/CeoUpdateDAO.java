@@ -21,7 +21,7 @@ public class CeoUpdateDAO {
 		}
 	}
 	
-	public void CeoUpdate(String password, String name, String type, String address, String phone, String image, String id) {
+	public void CeoUpdate(String password, String name, String type, String address, String phone, String image, String ceoid) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -29,7 +29,7 @@ public class CeoUpdateDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "update restaurant set password = ?, name = ?, type = ?, address = ?, phone = ?, image = ? where id = " + id;
+			String query = "update restaurant set password = ?, name = ?, type = ?, address = ?, phone = ?, image = ? where id = " + ceoid;
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, password);;
 			preparedStatement.setString(2, name);;
