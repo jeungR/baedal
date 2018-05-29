@@ -29,6 +29,7 @@
 	<td>2018-05-28</td>
 	<td>배달완료</td>
 </tr>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<c:forEach items="${HistorySearch }" var="dto">
 <tr>
 	<td>${dto.order_code }</td>
@@ -41,13 +42,13 @@
 </tr>
 </c:forEach>
 </table><br>
-&nbsp;&nbsp;&nbsp;&nbsp;-------------------------------------------------------------------------------<br><br>
+<hr></hr>
 
 <h3>개인정보</h3>
 <table>
-<tr><td>ID : </td><td><input type = "text" name = id value="${MyPage.userid}" readonly="readonly"></td><td><a href="CustomerUpdate.jsp"><input type = "submit" value = "회원정보수정"></a></td>
+<tr><td>ID : </td><td><input type = "text" name = id value="${customerId}" readonly="readonly"></td><td><a href="CustomerUpdate.jsp"><input type = "submit" value = "회원정보수정"></a></td>
 </tr>
-<tr><td>등급 : </td><td><input type = "text" name = vip value="${MyPage.vip}" readonly="readonly"></td>
+<tr><td>등급 : </td><td><input type = "text" name = vip value="${vip}" readonly="readonly"></td>
 </tr>
 </table>
 </body>

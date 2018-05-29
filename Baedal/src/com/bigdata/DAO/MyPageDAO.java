@@ -34,8 +34,10 @@ public class MyPageDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select order.code, restaurant.name, food.Name, menu.number, order.totalprice, order.startdate, order.ok from order, menu, food, restaurant ";
-//			String query2 = "Where order.code = menu.order_code and  ";
+			String query = "select order.code, restaurant.name, food.Name, menu.number, order.totalprice, order.startdate, order.ok "
+					+ "from order, menu, food, restaurant "
+					+ "where order.code = menu.order_code and menu.food_code = food.code and food.restaurant_code = restaurant.code ";
+
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
@@ -68,7 +70,7 @@ public class MyPageDAO {
 
 	}
 
-	public CustomerDTO UserInfoSearch(String userId, String vip) {
+	public CustomerDTO UserInfoSearch(String customerId, String vip) {
 			CustomerDTO dto = null; //데이터 한줄씩 보임
 			Connection connection = null; //연결
 			PreparedStatement preparedStatement = null; //준비
@@ -77,11 +79,14 @@ public class MyPageDAO {
 			try {
 				connection = dataSource.getConnection();
 				
-				String query = "select id, vip from customer where id = ? and vip = ? ";
+				String query = "select id, vip from customer where id = " + customerId;
 				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, userId);
+				preparedStatement.setString(1, customerId);
 				preparedStatement.setString(2, vip);
 				resultSet = preparedStatement.executeQuery();
+				
+//				String vip = resultSet.getString("vip");
+//				dto = new CustomerDTO(vip);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

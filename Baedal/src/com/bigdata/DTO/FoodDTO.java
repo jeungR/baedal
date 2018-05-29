@@ -11,6 +11,10 @@ public class FoodDTO {
 	String restaurant_code;
 	String cookingtime;
 	
+	public FoodDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public FoodDTO(String code, String name, int price, String date, String image, String type, String restaurant_code,
 			String cookingtime) {
 		super();

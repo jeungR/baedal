@@ -14,21 +14,16 @@
 String imagepath = application.getContextPath() + "/resources/image/";
 %>
 	
-<table>
+
 <c:forEach items = "${list }" var = "item">
-		<tr>
-		<td>
 		<div class="gallery">
- 		 <a target="_blank" href="<%=imagepath %>/resources/image/${item.image}">
-   		 <img src="<%=imagepath %>/resources/image/${item.image}" alt="chicken" width="300" height="200">
+ 		 <a target="_blank" href="<%=imagepath %>${item.image}">
+   		 <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   		</a>
  		 <div class="title">${item.name}</div>
- 		 <div class="desc">배달팁: "${item.tip}" 원</div>
+ 		 <div class="desc">배달팁: ${item.tip} 원</div>
 		</div>
-		</td>
-		</tr>
 </c:forEach>
-		</table>
 	
 
 

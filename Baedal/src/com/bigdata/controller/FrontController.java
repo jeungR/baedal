@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
 import com.bigdata.command.CeoHome_OrderMenuViewCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
+import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.Command;
-import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
+import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
-//github.com/jeungR/baedal.git
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
 import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
@@ -133,7 +132,7 @@ public class FrontController extends HttpServlet {
 		case("/MenuAdd_MenuInsert.do"):
 			Command = new MenuAdd_MenuInsertCommand();
 			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
+			viewPage = "CeoHome_OrderMenuView.do";
 			break;
 		
 		case("/MenuSelect_MenuViewCommand.do"):
