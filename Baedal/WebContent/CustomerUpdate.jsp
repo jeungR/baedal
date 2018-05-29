@@ -37,7 +37,6 @@
 
 </table> <br>
 
-
 <table>
 <tr>
 	<td colspan="180"></td><td><a href="MyPage.jsp"><input type = "submit" value ="수정"></a></td>

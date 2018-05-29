@@ -1,21 +1,27 @@
 package com.bigdata.DTO;
 
-import java.sql.Date;
-import java.sql.Time;
-
 public class FoodDTO {
 
 	String code;
 	String name;
 	int price;
-	Date date;
+	String date;
 	String image;
 	String type;
 	String restaurant_code;
-	Time cookingtime;
+	String cookingtime;
 	
-	public FoodDTO() {
+	public FoodDTO(String code, String name, int price, String date, String image, String type, String restaurant_code,
+			String cookingtime) {
 		super();
+		this.code = code;
+		this.name = name;
+		this.price = price;
+		this.date = date;
+		this.image = image;
+		this.type = type;
+		this.restaurant_code = restaurant_code;
+		this.cookingtime = cookingtime;
 	}
 
 	public String getCode() {
@@ -42,11 +48,11 @@ public class FoodDTO {
 		this.price = price;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -74,13 +80,15 @@ public class FoodDTO {
 		this.restaurant_code = restaurant_code;
 	}
 
-	public Time getCookingtime() {
+	public String getCookingtime() {
 		return cookingtime;
 	}
 
-	public void setCookingtime(Time cookingtime) {
+	public void setCookingtime(String cookingtime) {
 		this.cookingtime = cookingtime;
 	}
 	
+	
+
 	
 }
