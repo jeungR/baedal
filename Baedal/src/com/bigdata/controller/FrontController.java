@@ -26,6 +26,7 @@ import com.bigdata.command.MenuAdd_MenuInsertCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
 import com.bigdata.command.MenuSelect_SubMenuViewCommand;
 import com.bigdata.command.MyPage_HistorySearchCommand;
+import com.bigdata.command.Order_BasketSearchCommand;
 
 /**
  * Servlet implementation class BFrontController
@@ -67,7 +68,6 @@ public class FrontController extends HttpServlet {
 			Command = new CustomerHome_RestaurantViewCommand();
 			Command.execute(request, response);
 			viewPage = "CustomerHome.jsp";
-			//viewPage = "CeoHome_OrderMenuView.do";
 			break; 
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
@@ -146,6 +146,11 @@ public class FrontController extends HttpServlet {
 			Command = new MyPage_HistorySearchCommand();
 			Command.execute(request, response);
 			viewPage = "MyPage.jsp";
+			break;
+		case("/Order_BasketSearch.do"):
+			Command = new Order_BasketSearchCommand();
+			Command.execute(request, response);
+			viewPage = "Order.jsp";
 			break;
 		default:
 			break;
