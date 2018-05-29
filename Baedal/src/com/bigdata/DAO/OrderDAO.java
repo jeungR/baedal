@@ -25,7 +25,7 @@ public class OrderDAO {
 		}
 	}
 
-	public void BasketInsert(String code, String food_code, String food_restaurant_code, String number,
+	public void BasketInsert(String food_code, String food_restaurant_code, String number,
 			String customer_code) {
 		// 주문하기, 장바구니 담기 클릭시 Insert 되어야함
 		Connection connection = null;
@@ -35,13 +35,12 @@ public class OrderDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "insert into customer(code, food_code, food_restaurant_code, customer_code, number) values (?, ?, ?, ?, ?) ";
+			String query = "insert into basket(food_code, food_restaurant_code, customer_code, number) values (?, ?, ?, ?) ";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, code);
-			preparedStatement.setString(2, food_code);
-			preparedStatement.setString(3, food_restaurant_code);
-			preparedStatement.setString(4, customer_code);
-			preparedStatement.setString(5, number);
+			preparedStatement.setString(1, food_code);
+			preparedStatement.setString(2, food_restaurant_code);
+			preparedStatement.setString(3, customer_code);
+			preparedStatement.setString(4, number);
 			preparedStatement.executeUpdate();
 
 		} catch (Exception e) {
@@ -69,7 +68,7 @@ public class OrderDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select baedal.food.name, baedal.basket.number, (basket.number * food.price) "
+			String query = "select baedal.food.name, baedal.basket.number, (basket.number * food.price) subtotalprice "
 					+ "from baedal.food, baedal.basket "
 					+ "where baedal.basket.customer_code=? and baedal.food.code = baedal.basket.food_code ";
 
@@ -81,7 +80,7 @@ public class OrderDAO {
 			while (resultSet.next()) { // 보안사항 추가
 				String food_name = resultSet.getString("food.name");
 				String basket_number = resultSet.getString("basket.number");
-				int food_price = resultSet.getInt(Integer.parseInt("basket.number * food.price"));
+				int food_price = resultSet.getInt("subtotalprice");
 				BasketDTO dto = new BasketDTO(food_name, basket_number, food_price);
 				dtos.add(dto);
 			}

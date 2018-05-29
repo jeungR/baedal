@@ -12,8 +12,8 @@ public class MenuSelect_MenuViewCommnad implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		MenuSelectDAO dao = new MenuSelectDAO();
 		String restaurant_code = request.getParameter("code");
+		MenuSelectDAO dao = new MenuSelectDAO();
 		ArrayList<FoodDTO> mainMenuDTOs = dao.MenuView(restaurant_code);
 		ArrayList<FoodDTO> subMenuDTOs = dao.SubMenuView(restaurant_code);
 		request.setAttribute("mainMenuDTOs", mainMenuDTOs);

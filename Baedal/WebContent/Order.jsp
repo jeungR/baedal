@@ -12,18 +12,12 @@
 
 	<form action="OrderFinish" method=post>
 		<h2>장바구니(주문내역)</h2>
-		<table border=1>
+		<table border=1 id="itemtable">
 			<tr>
 				<td align=center>메뉴</td>
 				<td align=center>수량</td>
 				<td align=center>금액</td>
 				<td align=center>취소</td>
-			</tr>
-			<tr>
-				<td>치킨</td>
-				<td>2</td>
-				<td>31000</td>
-				<td align=center><input type=submit value='취소'></td>
 			</tr>
 				<c:forEach var="item" items="${BasketSearch }" >
 			<tr>
@@ -39,7 +33,7 @@
 		<table>
 			<tr>
 				<td><input type=submit value='메뉴추가'></td>
-				<td>총 금액 : <input type=text name=total1 size=5></td>
+				<td>총 금액 : <input type=text name=total1 id="totalprice" size=20></td>
 			</tr>
 		</table>
 				</form>
@@ -68,7 +62,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>총 금액 : <input type=text name=total2 size=5></td>
+				<td>총 금액 : <input type=text name=total2 size=20></td>
 				<td><input type=submit value='주문하기'></td>
 			</tr>
 		</table>
@@ -77,4 +71,18 @@
 	</form>
 
 </body>
+<script>
+function calculate() {
+    var table = document.getElementById("itemtable");
+    var sumVal = 0;
+    
+    for(var i = 1; i<table.rows.length; i++){
+    	sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
+    }
+    
+    document.getElementById("totalprice").value = sumVal;
+}
+calculate();
+</script>
+
 </html>

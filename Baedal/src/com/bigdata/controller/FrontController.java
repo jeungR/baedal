@@ -26,6 +26,7 @@ import com.bigdata.command.MenuAdd_MenuInsertCommand;
 import com.bigdata.command.MenuCheck_ViewCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
 import com.bigdata.command.MyPage_HistorySearchCommand;
+import com.bigdata.command.Order_BasketInsertCommand;
 import com.bigdata.command.Order_BasketSearchCommand;
 
 /**
@@ -62,7 +63,7 @@ public class FrontController extends HttpServlet {
 		case("/Login_LoginCustomer.do"):
 			Command = new Login_LoginCustomerCommand();
 			Command.execute(request, response);
-			viewPage = "CustomerHome_RestaurantView.do";
+			viewPage = "CustomerHome_RestaurantView.do?type=한식";
 			break;
 		case("/CustomerHome_RestaurantView.do"):
 			Command = new CustomerHome_RestaurantViewCommand();
@@ -146,6 +147,16 @@ public class FrontController extends HttpServlet {
 			Command = new Order_BasketSearchCommand();
 			Command.execute(request, response);
 			viewPage = "Order.jsp";
+			break;
+		case("/Order_BasketInsert.do"):
+			Command = new Order_BasketInsertCommand();
+			Command.execute(request, response);
+			viewPage = "MenuSelect_MenuView.do?code="+request.getParameter("restaurant_code");
+			break;
+		case("/Order_BasketInsertSearch.do"):
+			Command = new Order_BasketInsertCommand();
+			Command.execute(request, response);
+			viewPage = "Order_BasketSearch.do";
 			break;
 		case("/MenuSelect_MenuView.do"):
 			Command = new MenuSelect_MenuViewCommnad();
