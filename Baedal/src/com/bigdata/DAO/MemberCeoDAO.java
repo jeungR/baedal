@@ -1,5 +1,9 @@
 package com.bigdata.DAO;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -17,12 +21,66 @@ public class MemberCeoDAO {
 		}
 	}
 	
-	public void IdCheck() {
+	public boolean IdCheck(String id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "SELECT id FROM restaurant WHERE id=?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, id);
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) return true;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		return false;
 	}
 	
-	public void CeoInsert() {
+	public void CeoInsert(String id, String password, String name, String type, String address, String phone, String image) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into restaurant(id, password, name, type, address, phone, image) values (?, ?, ?, ?, ?, ?, ?)";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, password);
+			preparedStatement.setString(3, name);
+			preparedStatement.setString(4, type);
+			preparedStatement.setString(5, address);
+			preparedStatement.setString(6, phone);
+			preparedStatement.setString(7, image);
+			preparedStatement.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 	}
 	
 	public void InsertFieldCheck() {

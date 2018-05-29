@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
-import com.bigdata.command.CeoHome_MenuInfoSearchCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
-import com.bigdata.command.CeoHome_OrderReportSearchCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
-import com.bigdata.command.Login_LoginCheckCommand;
+import com.bigdata.command.Login_LoginCeoCommand;
+import com.bigdata.command.Login_LoginCustomerCommand;
+//github.com/jeungR/baedal.git
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
 import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
@@ -50,8 +50,13 @@ public class FrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch (com) {
-		case("/LoginCheck.do"): //회원가입 클릭시 이동, 확인 클릭시 고객홈 또는 사장홈으로 가야함
-			Command = new Login_LoginCheckCommand();
+		case("/Login_LoginCustomer.do"):
+			Command = new Login_LoginCustomerCommand();
+			Command.execute(request, response);
+			viewPage = "Login.jsp";
+			break;
+		case("/Login_LoginCeo.do"):
+			Command = new Login_LoginCeoCommand();
 			Command.execute(request, response);
 			viewPage = "CutomerHome.jsp";
 			break;
@@ -62,7 +67,7 @@ public class FrontController extends HttpServlet {
 		case("/MemberCeo_IdCheck.do"):
 			Command = new MemberCeo_IdCheckCommand();
 			Command.execute(request, response);
-			viewPage = "MemberCEO.jsp";
+			viewPage = "MemberCEO_IdCheck.jsp";
 			break;
 		case("/MemberCeo_CeoInsert.do"):
 			Command = new MemberCeo_CeoInsertCommand();
@@ -80,7 +85,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "Login.jsp";
 			break; 
 		case("/CEOHome_OrderReportSearch.do"):
-			Command = new CeoHome_OrderReportSearchCommand();
+//			Command = new CeoHome_OrderReportSearchCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
@@ -90,7 +95,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "CEOHome.jsp";
 			break; 
 		case("/CEOHome_MenuInfoSearch.do"):
-			Command = new CeoHome_MenuInfoSearchCommand();
+//			Command = new CeoHome_MenuInfoSearchCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
@@ -122,12 +127,6 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = ".jsp";
 			break; 
-//		case("/Order_.do"):
-////			Command = new Order_();
-//			Command.execute(request, response);
-//			viewPage = ".jsp";
-//			break; 
-
 		case("/write.do"):
 			//Command = new ****Command();
 			Command.execute(request, response);
