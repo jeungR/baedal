@@ -70,7 +70,7 @@ public class MyPageDAO {
 
 	}
 
-	public CustomerDTO UserInfoSearch(String customerId) {
+	public CustomerDTO UserInfoSearch(String customerId, String vip) {
 			CustomerDTO dto = null; //데이터 한줄씩 보임
 			Connection connection = null; //연결
 			PreparedStatement preparedStatement = null; //준비
@@ -79,17 +79,14 @@ public class MyPageDAO {
 			try {
 				connection = dataSource.getConnection();
 				
-				String query = "select id from customer where id = ? ";
+				String query = "select id, vip from customer where id = " + customerId;
 				preparedStatement = connection.prepareStatement(query);
 				preparedStatement.setString(1, customerId);
+				preparedStatement.setString(2, vip);
 				resultSet = preparedStatement.executeQuery();
 				
-				while(resultSet.next()) { //테이블 구성한 대로 
-//					String id = resultSet.getString("id");
-//					String vip = resultSet.getString("vip");
-					
-//					dto = new CustomerDTO(customerId);
-				}
+//				String vip = resultSet.getString("vip");
+//				dto = new CustomerDTO(vip);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

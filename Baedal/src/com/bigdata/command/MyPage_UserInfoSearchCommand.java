@@ -15,7 +15,7 @@ public class MyPage_UserInfoSearchCommand implements Command {
 		String vip = request.getParameter("vip");
 		
 		MyPageDAO dao = new MyPageDAO();
-		CustomerDTO dto = dao.UserInfoSearch(customerId);
+		CustomerDTO dto = dao.UserInfoSearch(customerId, vip);
 		
 		request.setAttribute("MyPage", dto);
 	}

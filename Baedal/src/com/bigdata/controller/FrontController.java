@@ -133,7 +133,6 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "MenuSelect.jsp";
 		break;
-
 		default:
 			break;
 		}
