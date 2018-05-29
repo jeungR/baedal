@@ -24,7 +24,7 @@ public class CustomerHomeDAO {
 		}
 	}
 	
-	public ArrayList<RestaurantDTO> list(){
+	public ArrayList<RestaurantDTO> list(String typeCompare){
 		ArrayList<RestaurantDTO> dtos = new ArrayList<RestaurantDTO>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -33,8 +33,9 @@ public class CustomerHomeDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select name, image, tip, type from restaurant ";
+			String query = "select name, image, tip, type from restaurant where type=? ";
 			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, typeCompare);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()){
