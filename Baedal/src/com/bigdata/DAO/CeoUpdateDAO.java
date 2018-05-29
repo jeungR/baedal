@@ -11,7 +11,7 @@ public class CeoUpdateDAO {
 	public CeoUpdateDAO() {
 		try {
 			Context ctx = new InitialContext();
-			dataSource = (DataSource)ctx.lookup("java:/comp/env/jdbc/mvc");
+			dataSource = (DataSource)ctx.lookup("java:/comp/env/jdbc/baedal");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}

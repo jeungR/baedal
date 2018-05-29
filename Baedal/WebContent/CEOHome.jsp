@@ -42,11 +42,11 @@
 </tr>
 <tr><td align=center>엽떡매운맛</td>
 	<td align=center>20,000</td>
-	<td><input type = submit value = "수정">
+	<td><a href="MenuAdd.jsp"><input type = submit value = "수정">
 		<input type = submit value = "삭제"></td>
 </tr>
 </table><br>
-<p align=center><input type=submit value='메뉴추가'>
+<p align=center><a href="MenuAdd.jsp"><input type=submit value='메뉴추가'>
 
 </body>
 </html>
