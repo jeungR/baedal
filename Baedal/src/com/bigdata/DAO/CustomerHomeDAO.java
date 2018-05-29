@@ -33,19 +33,20 @@ public class CustomerHomeDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select name, image, tip, type from restaurant where type=? ";
+			String query = "select code, name, image, tip, type from restaurant where type=? ";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, typeCompare);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()){
+				String code = resultSet.getString("code");
 				String name = resultSet.getString("name");
 				String image = resultSet.getString("image");
 				String tip = resultSet.getString("tip");
 				String type= resultSet.getString("type");
 				
 				
-				RestaurantDTO dto = new RestaurantDTO(name, image, tip, type);
+				RestaurantDTO dto = new RestaurantDTO(code, name, image, tip, type);
 				dtos.add(dto);			
 				
 			}
@@ -75,7 +76,7 @@ public class CustomerHomeDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "SELECT image, name, tip FROM restaurant WHERE type = " + restaurant_type;
+			String query = "SELECT code, image, name, tip, type FROM restaurant WHERE type = " + restaurant_type;
 			
 			
 			preparedStatement = connection.prepareStatement(query);
@@ -83,12 +84,13 @@ public class CustomerHomeDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()){
+				String code = resultSet.getString("code");
 				String name = resultSet.getString("name");
 				String image = resultSet.getString("image");
 				String tip = resultSet.getString("tip");
 				String type = resultSet.getString("type");
 				
-				dto = new RestaurantDTO(name, image, tip, type);
+				dto = new RestaurantDTO(code, name, image, tip, type);
 			
 			}
 			

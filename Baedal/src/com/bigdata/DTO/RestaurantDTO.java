@@ -15,8 +15,9 @@ public class RestaurantDTO {
 	
 
 
-	public RestaurantDTO(String name, String image, String tip, String type) {
+	public RestaurantDTO(String code, String name, String image, String tip, String type) {
 		super();
+		this.code = code;
 		this.name = name;
 		this.type = type;
 		this.tip = tip;
