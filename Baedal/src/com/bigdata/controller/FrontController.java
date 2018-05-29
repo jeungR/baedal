@@ -117,11 +117,6 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
-		case("/CustomerHome_.do"): //클릭메서드가 있어야하는지 확인
-			Command = new CustomerHome_RestaurantViewCommand();
-			Command.execute(request, response);
-			viewPage = ".jsp";
-			break; 
 		case("/write.do"):
 			//Command = new ****Command();
 			Command.execute(request, response);

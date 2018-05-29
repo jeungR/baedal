@@ -9,7 +9,7 @@
 <title>메뉴등록</title>
 </head>
 <body>
-	<form action="CEOHome.jsp" method=post>
+	<form action="MenuAdd_MenuInsert.do" method=post>
 		<table>
 			<tr>
 				<td>메뉴이름</td>
@@ -33,7 +33,7 @@
 				<td><input type=text name=cookingtime></td>
 			</tr>
 			<tr>
-				<td><input type=submit value='사진첨부'></td>
+				<td><input type = "file" name = image accept = "image/gif,image/jpeg,image/png" value = "사진첨부"></td>
 				<td><input type=submit value='확인'></td>
 			</tr>
 		</table>
