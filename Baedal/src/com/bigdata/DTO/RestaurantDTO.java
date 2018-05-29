@@ -13,8 +13,14 @@ public class RestaurantDTO {
 	String tip;
 	String image;
 	
-	public RestaurantDTO() {
+
+
+	public RestaurantDTO(String name, String image, String tip, String type) {
 		super();
+		this.name = name;
+		this.type = type;
+		this.tip = tip;
+		this.image = image;
 	}
 
 	public String getCode() {

@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form action = "MemberCustomer_UserInsert.do" method="post" name="customerform" enctype="multipart/form-data"> 
+<form action = "MemberCustomer_UserInsert.do" method="post" name="customerform" > 
 
 <h3>고객 회원가입</h3>
 <table>
