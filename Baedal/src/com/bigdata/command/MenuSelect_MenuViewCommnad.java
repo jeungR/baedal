@@ -13,7 +13,8 @@ public class MenuSelect_MenuViewCommnad implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		MenuSelectDAO dao = new MenuSelectDAO();
-		ArrayList<FoodDTO> dtos = dao.MenuView();
+		String restaurantcode = (String) request.getSession().getAttribute("ceoCode");
+		ArrayList<FoodDTO> dtos = dao.MenuView(restaurantcode);
 		request.setAttribute("MenuSelect", dtos);
 	}
 
