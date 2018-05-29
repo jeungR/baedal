@@ -17,7 +17,6 @@ import com.bigdata.command.Command;
 import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
-//github.com/jeungR/baedal.git
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
 import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;

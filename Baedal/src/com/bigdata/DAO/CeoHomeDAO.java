@@ -49,7 +49,7 @@ public class CeoHomeDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			orderReportDTOs = new ArrayList<>();
-			if(resultSet.next()) {
+			while(resultSet.next()) {
 				OrderReportDTO orderReportDTO = new OrderReportDTO();
 				orderReportDTO.setOrder_code(resultSet.getString("o.code"));
 				orderReportDTO.setCustomer_name(resultSet.getString("c.name"));
@@ -95,7 +95,7 @@ public class CeoHomeDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			foodDTOs = new ArrayList<>();
-			if(resultSet.next()) {
+			while(resultSet.next()) {
 				FoodDTO foodDTO = new FoodDTO();
 				foodDTO.setCode(resultSet.getString("code"));
 				foodDTO.setName(resultSet.getString("name"));
