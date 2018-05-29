@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td>카테고리</td>
-				<td><select name="menucategory">
+				<td><select name="foodtype">
 						<option>한식</option>
 						<option>중식</option>
 						<option>양식</option>

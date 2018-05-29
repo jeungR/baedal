@@ -10,14 +10,14 @@ public class MenuAdd_MenuInsertCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String foodname = request.getParameter("foodname");
-		String foodprice = request.getParameter("foodprice");
+		String menuname = request.getParameter("menuname");
+		String price = request.getParameter("price");
 		String foodtype = request.getParameter("foodtype");
 		String cookingtime = request.getParameter("cookingtime");
-		String foodimage = request.getParameter("foodimage");
+		String image = request.getParameter("image");
 		
 		MenuAddDAO dao = new MenuAddDAO();
-		dao.MenuInsert(foodname, foodprice, foodtype, cookingtime, foodimage);
+		dao.MenuInsert(menuname, price, foodtype, cookingtime, image);
 	}
 
 }
