@@ -59,6 +59,10 @@
 	<td colspan="2"><input type = text name = phone size = 20 required><br></td>
 </tr>
 <tr>
+	<td>배달팁 : </td>
+	<td colspan="2"><input type="number" name = tip size = 20 required><br></td>
+</tr>
+<tr>
 	<td colspan = "2"><input type = "checkbox" name = "agree" required> 정보이용에 동의합니다.(필수)</td>
 	<td><input type = submit value = "확인"></td>
 	</tr>
