@@ -46,7 +46,7 @@
 
 <table>
 <tr>
-	<td colspan="180"></td><td><input type = "submit" value ="확인"></a></td>
+	<td colspan="180"></td><td><input type = "submit" value ="확인"></td>
 </tr>	
 </table>
 </form>

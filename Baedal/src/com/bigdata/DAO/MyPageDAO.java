@@ -25,7 +25,7 @@ public class MyPageDAO {
 		}
 	}
 
-	public ArrayList<HistoryDTO> HistorySearch() { // 데이터 쌓는 메소드
+	public ArrayList<HistoryDTO> HistorySearch(String customer_code) { // 데이터 쌓는 메소드
 		ArrayList<HistoryDTO> dtos = new ArrayList<HistoryDTO>();
 		Connection connection = null; // 연결
 		PreparedStatement preparedStatement = null; // 준비
