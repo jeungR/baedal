@@ -10,12 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
+import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
+import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
+import com.bigdata.command.CustomerHome_RestaurantViewCommand;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
+//github.com/jeungR/baedal.git
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
 import com.bigdata.command.MemberCeo_IdCheckCommand;
+import com.bigdata.command.MemberCustomer_IdCheckCommand;
+import com.bigdata.command.MemberCustomer_UserInsertCommand;
+import com.bigdata.command.MenuAdd_MenuInfoUpdateCommand;
+import com.bigdata.command.MenuAdd_MenuInsertCommand;
 
 /**
  * Servlet implementation class BFrontController
@@ -52,9 +60,9 @@ public class FrontController extends HttpServlet {
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
 			Command.execute(request, response);
-			viewPage = "Login.jsp";
+			viewPage = "CutomerHome.jsp";
 			break;
-		case("/MemberType.do"):
+		case("/MemberType.do"): // 클릭에따라 viewpage가 달라짐
 			Command.execute(request, response);
 			viewPage = "MemberType.jsp";
 			break;
@@ -63,21 +71,74 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "MemberCEO_IdCheck.jsp";
 			break;
-		case("/MemberCeo_CeoInsert.do"):
+		case("/MemberCeo_CeoInsert.do"): 
 			Command = new MemberCeo_CeoInsertCommand();
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
-			break; //여기까지
-		case("/MemberCeo_CeoUpdate.do"):
+			break; 
+		case("/MemberCeo_CeoUpdate.do")://ceo 정보수정 클릭시 ceo홈으로 
 			Command = new CeoUpdate_CeoUpdateCommand();
 			Command.execute(request, response);
-			viewPage = "CeoUpdate.jsp";
-			break; //여기까지
+			viewPage = "CEOHome.jsp";
+			break; 
 		case("/MemberCustomer_CustomerUpdate.do"):
 			Command = new CustomerUpdate_CustomerUpdateCommnad();
 			Command.execute(request, response);
-			viewPage = "CustomerUpdate.jsp";
-			break; //여기까지
+			viewPage = "Mypage.jsp";
+			break; 
+		case("/MemberCustomer_IdCheck.do"):
+			Command = new MemberCustomer_IdCheckCommand();
+			Command.execute(request, response);
+			viewPage = "MemberCustomer.jsp";
+			break; 
+		case("/MemberCustomer_UserInsert.do"):
+			Command = new MemberCustomer_UserInsertCommand();
+			Command.execute(request, response);
+			viewPage = "Login.jsp";
+			break; 
+		case("/CEOHome_OrderReportSearch.do"):
+//			Command = new CeoHome_OrderReportSearchCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
+			break; 
+		case("/CEOHome_OrderOk.do"):
+			Command = new CeoHome_OrderOkCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
+			break; 
+		case("/CEOHome_MenuInfoSearch.do"):
+//			Command = new CeoHome_MenuInfoSearchCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
+			break; 
+		case("/CEOHome_MenuInfoDelete.do"):
+			Command = new CeoHome_MenuInfoDeleteCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
+			break; 
+		case("/CEOHome_Update.do"): //회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
+			Command.execute(request, response);
+			viewPage = "CeoUpdate.jsp";
+			break; 
+		case("/CEOHome_MenuAdd.do"): //메뉴추가 클릭시 MenuAdd창으로 넘어가야함
+			Command.execute(request, response);
+			viewPage = "MenuAdd.jsp";
+			break; 
+		case("/MenuAdd_MenuInsert.do"):
+			Command = new MenuAdd_MenuInsertCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
+			break; 
+		case("/MenuAdd_MenuInfoUpdate.do"): // CEOHome 수정 클릭시 MenuAdd창으로 가야하는데, 이부분확인
+			Command = new MenuAdd_MenuInfoUpdateCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
+			break; 
+		case("/CustomerHome_.do"): //클릭메서드가 있어야하는지 확인
+			Command = new CustomerHome_RestaurantViewCommand();
+			Command.execute(request, response);
+			viewPage = ".jsp";
+			break; 
 		case("/write.do"):
 			//Command = new ****Command();
 			Command.execute(request, response);

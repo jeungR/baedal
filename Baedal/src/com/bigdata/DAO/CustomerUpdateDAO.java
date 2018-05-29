@@ -15,7 +15,7 @@ public class CustomerUpdateDAO {
 	public CustomerUpdateDAO() {
 		try {
 			Context ctx = new InitialContext();
-			dataSource = (DataSource)ctx.lookup("java:/comp/env/jdbc/mvc");
+			dataSource = (DataSource)ctx.lookup("java:/comp/env/jdbc/baedal");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
@@ -29,13 +29,12 @@ public class CustomerUpdateDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "update customer set password = ?, address = ?, mobile = ?, name = ? where id = ?";
+			String query = "update customer set password = ?, address = ?, mobile = ?, name = ? where id = " + id;
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, password);;
 			preparedStatement.setString(2, address);;
 			preparedStatement.setString(3, mobile);;
 			preparedStatement.setString(4, name);;
-			preparedStatement.setString(5, id);;
 			preparedStatement.executeUpdate();
 			
 		}catch(Exception e) {

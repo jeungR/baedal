@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<form action = "MemberCustomer_UserInsert.do" method="post" name="customerform" enctype="multipart/form-data"> 
+
 <h3>고객 회원가입</h3>
 <table>
 <tr>
@@ -18,7 +21,7 @@
 <tr>
 	<td>ID</td>
 	<td><input type = "text" name = "id" size="15" required>
-	<input type = "submit" value = "중복확인"></td>
+	<input type = button value = "중복확인" onclick="checkId(this.form)"></td>
 </tr>
 <tr>
 	<td>PW</td>
@@ -46,6 +49,18 @@
 	<td colspan="180"></td><td><a href="Login.jsp"><input type = "submit" value ="확인"></a></td>
 </tr>	
 </table>
+</form>
+
+<script>
+function checkId(){
+	if(document.customerform.id.value == ""){
+		alert("id를 입력하세요");
+		return;
+	}
+	url = "MemberCeo_IdCheck.do?id="+document.customerform.id.value;
+	open(url, "ID 중복확인", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,width=300,height=200");
+}
+</script>
 
 
 
