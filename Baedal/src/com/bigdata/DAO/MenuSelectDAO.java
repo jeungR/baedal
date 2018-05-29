@@ -25,7 +25,7 @@ public class MenuSelectDAO {
 	}
 	
 
-	public ArrayList<FoodDTO> MenuView(){
+	public ArrayList<FoodDTO> MenuView(String restaurant_code){
 		ArrayList<FoodDTO> dtos = new ArrayList<FoodDTO>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -34,8 +34,9 @@ public class MenuSelectDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select * from food";
+			String query = "select * from baedal.food where restaurant_code = ?";
 			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, restaurant_code);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
@@ -45,10 +46,10 @@ public class MenuSelectDAO {
 				String date = resultSet.getString("date");
 				String image = resultSet.getString("image");
 				String type = resultSet.getString("type");
-				String restaurant_code = resultSet.getString("restaurant_code");
+				String restaurantcode = resultSet.getString("restaurant_code");
 				String cookingtime = resultSet.getString("cookingtime");
 				
-				FoodDTO dto = new FoodDTO(code, name, price, date, image, type, restaurant_code, cookingtime);
+				FoodDTO dto = new FoodDTO(code, name, price, date, image, type, restaurantcode, cookingtime);
 				dtos.add(dto);
 				
 			}
