@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
+import com.bigdata.command.CeoHome_OrderMenuViewCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
@@ -22,7 +23,6 @@ import com.bigdata.command.MemberCeo_CeoInsertCommand;
 import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
-import com.bigdata.command.MenuAdd_MenuInfoUpdateCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
 
 /**
@@ -60,7 +60,7 @@ public class FrontController extends HttpServlet {
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
 			Command.execute(request, response);
-			viewPage = "CutomerHome.jsp";
+			viewPage = "CeoHome_OrderMenuView.do";
 			break;
 		case("/MemberType.do"): // 클릭에따라 viewpage가 달라짐
 			Command.execute(request, response);
@@ -96,8 +96,8 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
 			break; 
-		case("/CEOHome_OrderReportSearch.do"):
-//			Command = new CeoHome_OrderReportSearchCommand();
+		case("/CeoHome_OrderMenuView.do"):
+			Command = new CeoHome_OrderMenuViewCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
@@ -126,11 +126,6 @@ public class FrontController extends HttpServlet {
 			break; 
 		case("/MenuAdd_MenuInsert.do"):
 			Command = new MenuAdd_MenuInsertCommand();
-			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
-			break; 
-		case("/MenuAdd_MenuInfoUpdate.do"): // CEOHome 수정 클릭시 MenuAdd창으로 가야하는데, 이부분확인
-			Command = new MenuAdd_MenuInfoUpdateCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
