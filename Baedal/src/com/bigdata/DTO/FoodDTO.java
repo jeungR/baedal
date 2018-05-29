@@ -18,6 +18,19 @@ public class FoodDTO {
 		super();
 	}
 
+	public FoodDTO(String code, String name, int price, Date date, String image, String type, String restaurant_code,
+			Time cookingtime) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.price = price;
+		this.date = date;
+		this.image = image;
+		this.type = type;
+		this.restaurant_code = restaurant_code;
+		this.cookingtime = cookingtime;
+	}
+
 	public String getCode() {
 		return code;
 	}
