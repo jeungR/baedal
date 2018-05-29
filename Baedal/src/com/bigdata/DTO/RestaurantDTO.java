@@ -14,6 +14,18 @@ public class RestaurantDTO {
 	String image;
 	
 
+	public RestaurantDTO(String id, String password, String name, String address, String phone,
+			String type, String tip, String image) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+		this.type = type;
+		this.tip = tip;
+		this.image = image;
+	}
 
 	public RestaurantDTO(String name, String image, String tip, String type) {
 		super();

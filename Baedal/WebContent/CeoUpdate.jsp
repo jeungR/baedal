@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form action = "MemberCeo_CeoInsert.do" method="post" name="ceoform" enctype="multipart/form-data"> 
+<form action = "MemberCeo_CeoUpdate.do" method="post" name="ceoform" enctype="multipart/form-data"> 
 
 <Table>
 <tr>
