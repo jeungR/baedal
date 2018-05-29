@@ -16,9 +16,8 @@ String imagepath = application.getContextPath() + "/resources/image/";
 		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <h1>주 메뉴</h1>
-
 <div class="gallery">
-  <c:forEach items= "${dto }" var="item">
+  <c:forEach items= "${MenuSelect }" var="item">
   <a target="_blank" href="<%=imagepath %>${item.image}">
     <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   </a>
@@ -32,11 +31,13 @@ String imagepath = application.getContextPath() + "/resources/image/";
 
 <h1>사이드</h1>
 <div class="gallery">
-  <a target="_blank" href="<%=application.getContextPath() %>/resources/image/chicken.jpg">
-    <img src="<%=application.getContextPath() %>/resources/image/chicken.jpg" alt="chicken" width="300" height="200">
+<c:forEach items= "${SubMenuSelect }" var="item">
+  <a target="_blank" href="<%=imagepath %>/resources/image/chicken.jpg">
+    <img src="<%=imagepath %>${item.image}" alt="${item.image}" width="300" height="200">
   </a>
-  <div class="title">가게이름</div>
-  <div class="desc">배달팁: 500원</div>
+  <div class="title">${item.name }</div>
+  <div class="desc">${item.price }</div>
+   </c:forEach>
 </div>
 
 
