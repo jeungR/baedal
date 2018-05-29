@@ -68,6 +68,7 @@ public class FrontController extends HttpServlet {
 			Command = new CustomerHome_RestaurantViewCommand();
 			Command.execute(request, response);
 			viewPage = "CustomerHome.jsp";
+			//viewPage = "CeoHome_OrderMenuView.do";
 			break; 
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
