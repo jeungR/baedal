@@ -12,7 +12,7 @@ public class FoodDTO {
 	String image;
 	String type;
 	String restaurant_code;
-	Time cookingtime;
+	String cookingtime;
 	
 	public FoodDTO() {
 		super();
@@ -74,11 +74,11 @@ public class FoodDTO {
 		this.restaurant_code = restaurant_code;
 	}
 
-	public Time getCookingtime() {
+	public String getCookingtime() {
 		return cookingtime;
 	}
 
-	public void setCookingtime(Time cookingtime) {
+	public void setCookingtime(String cookingtime) {
 		this.cookingtime = cookingtime;
 	}
 	
