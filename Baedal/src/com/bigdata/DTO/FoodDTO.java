@@ -1,7 +1,6 @@
 package com.bigdata.DTO;
 
 import java.sql.Date;
-import java.sql.Time;
 
 public class FoodDTO {
 
