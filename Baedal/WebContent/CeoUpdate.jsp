@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>공급자 회원가입</title>
+<title>공급자 회원가입 수정</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 </tr>
 <tr>
 	<td>비밀번호 : </td>
-	<td colspan="2"><input type = password name = password size = 20 required><br></td>
+	<td colspan="2"><input type = password name = password value = "${CeoUpdateView.password}" size = 20 required><br></td>
 </tr>
 <tr>
 	<td>비밀번호 확인 : </td>
@@ -34,11 +34,11 @@
 	</tr>
 <tr>
 	<td>상호명 : </td>
-	<td><input type = text name = name size = 20 required></td>
+	<td><input type = text name = name size = 20 value = "${CeoUpdateView.name}" required></td>
 </tr>
 <tr>
 	<td>메인사진 : </td>
-	<td><input type = "file" name = image accept = "image/gif,image/jpeg,image/png" value = "사진첨부"><br></td>
+	<td><input type = "file" name = image value = "${CeoUpdateView.image}" accept = "image/gif,image/jpeg,image/png" value = "사진첨부"><br></td>
 </tr>
 <tr>
 	<td> 업종 : </td>
@@ -51,15 +51,15 @@
 </tr>
 <tr>
 	<td>주소 : </td>
-	<td colspan="2"><input type = text name = address size = 50 required><br></td>
+	<td colspan="2"><input type = text name = address value = "${CeoUpdateView.address}" size = 50 required><br></td>
 </tr>
 <tr>
 	<td>전화번호 : </td>
-	<td colspan="2"><input type = text name = phone size = 20 required><br></td>
+	<td colspan="2"><input type = text name = phone value = "${CeoUpdateView.phone}" size = 20 required><br></td>
 </tr>
 <tr>
 	<td>배달팁 : </td>
-	<td colspan="2"><input type="number" name = tip size = 20 required><br></td>
+	<td colspan="2"><input type= "number" value = "${CeoUpdateView.tip}" name = tip size = 20 required><br></td>
 </tr>
 <tr>
 

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bigdata.DAO.CustomerUpdateDAO;
 import com.bigdata.DAO.MemberCustomerDAO;
 
-public class CustomerUpdate_CustomerUpdateCommnad implements Command {
+public class CustomerUpdate_CustomerUpdateCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
