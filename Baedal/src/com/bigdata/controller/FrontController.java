@@ -139,7 +139,7 @@ public class FrontController extends HttpServlet {
 		case ("/CEOHome_Update.do"): // 회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
 			Command = new CeoUpdate_CeoUpdateCommand();
 			Command.execute(request, response);
-			viewPage = "CEOHome.jsp";
+			viewPage = "CeoHome_OrderMenuView.do";
 			break;
 		case ("/CEOHome_MenuAdd.do"): // 메뉴추가 클릭시 MenuAdd창으로 넘어가야함
 			Command.execute(request, response);

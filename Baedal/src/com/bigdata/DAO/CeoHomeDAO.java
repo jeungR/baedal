@@ -36,7 +36,7 @@ public class CeoHomeDAO {
 			
 			String query = "SELECT o.code, c.name, c.mobile, c.address, f.name, m.number, o.ok \n" + 
 					"FROM \n" + 
-					"(SELECT `code`, startdate, `time`, customer_code, ok FROM baedal.order WHERE restaurant_code=? AND NOT ok=9 ORDER BY startdate DESC) o,\n" + 
+					"(SELECT `code`, startdate, `cookingtime`, customer_code, ok FROM baedal.order WHERE restaurant_code=? AND NOT ok=9 ORDER BY startdate DESC) o,\n" + 
 					"(SELECT code, name, mobile, address FROM baedal.customer) c,\n" + 
 					"(SELECT code, name FROM baedal.food WHERE restaurant_code=?) f,\n" + 
 					"(SELECT order_code, food_code, number FROM baedal.menu) m\n" + 
