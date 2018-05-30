@@ -16,7 +16,7 @@
 <tr>
 <br><br>
 	<td>ID : </td>
-	<td><input type = text name = id size = 20 value = "${ceoId}" required readonly="readonly"></td>
+	<td><input type = text name = id size = 20 value = "${CeoUpdateView.id}" required readonly="readonly"></td>
 </tr>
 <tr>
 	<td>비밀번호 : </td>
@@ -24,7 +24,7 @@
 </tr>
 <tr>
 	<td>비밀번호 확인 : </td>
-	<td colspan="2"><input type = password name = passwordcheck size = 20 required><br><br></td>
+	<td colspan="2"><input type = password name = passwordcheck  size = 20 required><br><br></td>
 </tr>
 <tr>
 	<td colspan = "3"><hr><br></td>
