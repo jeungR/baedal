@@ -105,14 +105,6 @@ public class OrderDAO {
 		return false;
 	}
 
-	public void SumPrice() {
-
-	}
-	
-	public void SumTipPrice() {
-		
-	}
-
 	public CustomerDTO UserInfoSearch(String customer_Code) {
 			CustomerDTO dto = null; //데이터 한줄씩 보임
 			Connection connection = null; //연결
@@ -149,6 +141,38 @@ public class OrderDAO {
 			return dto;
 		}
 
+	public String selectTip(String customer_code) {
+		Connection connection = null; 
+		PreparedStatement preparedStatement = null; 
+		ResultSet resultSet = null; 
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "SELECT tip FROM restaurant WHERE code=(SELECT food_restaurant_code FROM basket WHERE customer_code =? LIMIT 1);";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, customer_code);
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				String tip = resultSet.getString("tip");
+				return tip;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { 
+				if(resultSet != null) resultSet.close(); 
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
 
 	public void OrderInsert(String code, String totalprice, String time, String address, String startdate,
 			String payment, String restaurant_code, String customer_code) {
