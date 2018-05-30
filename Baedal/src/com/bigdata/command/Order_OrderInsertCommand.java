@@ -23,7 +23,7 @@ public class Order_OrderInsertCommand implements Command {
 		orderDAO.OrderInsert(mobile, address, payment, totaltipprice, cookingtime, restaurant_code, customer_code);
 		String order_code = orderDAO.selectOrderCode(customer_code, restaurant_code);
 		orderDAO.insertBasketToMenu(order_code, customer_code, restaurant_code);
-		//orderDAO.BasketAllDelete(customer_code);
+		orderDAO.BasketAllDelete(customer_code);
 	}
 
 }
