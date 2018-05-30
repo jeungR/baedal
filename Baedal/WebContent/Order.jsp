@@ -59,10 +59,11 @@
 		확인 및 결제진행 동의 (필수) <br> <br>
 		<table>
 			<tr>
-				<td colspan=2>+ 배달팁: <input type=text name=tip size=5>
+				<td colspan=2>+ 배달팁: <input type=text name=tip size=5 value="${tip}">
 					원
 				</td>
 			</tr>
+			
 			</table>
 			</form>
 			
