@@ -20,15 +20,6 @@
 	<td>주문시간</td>
 	<td>배달확인</td>
 </tr>
-<tr>
-	<td>001</td>
-	<td>엽떡</td>
-	<td>엽떡순한맛</td>
-	<td>1</td>
-	<td>14,000</td>
-	<td>2018-05-28</td>
-	<td>배달완료</td>
-</tr>
 	<c:forEach var="item" items="${HistorySearch }" >
 <tr>
 	<td>${item.order_code }</td>

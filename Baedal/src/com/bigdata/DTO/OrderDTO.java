@@ -10,6 +10,7 @@ public class OrderDTO {
 	String payment;
 	String ok;
 	String customer_code;
+	String restaurant_code;
 	
 
 	public OrderDTO() {
@@ -26,12 +27,12 @@ public class OrderDTO {
 		this.code = code;
 	}
 
-	public String getTotaltipprice() {
+	public String getTotalprice() {
 		return totalprice;
 	}
 
-	public void setTotaltipprice(String totaltipprice) {
-		this.totalprice = totaltipprice;
+	public void setTotalprice(String totalprice) {
+		this.totalprice = totalprice;
 	}
 
 	public String getTime() {
@@ -88,6 +89,18 @@ public class OrderDTO {
 
 	public void setCustomer_code(String customer_code) {
 		this.customer_code = customer_code;
+	}
+
+
+
+	public String getRestaurant_code() {
+		return restaurant_code;
+	}
+
+
+
+	public void setRestaurant_code(String restaurant_code) {
+		this.restaurant_code = restaurant_code;
 	}
 
 	

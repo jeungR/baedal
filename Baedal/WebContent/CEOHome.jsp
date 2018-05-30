@@ -11,7 +11,7 @@
 <%@include file="/resources/module/menubarCeo.jsp"%>
 
 
-<form action = "CeoUpdate.jsp" method="post"> 
+<form action = "CEOHome_UpdateView.do" method="post"> 
 <p> ${ceoId} 사장님 
 <input type = "submit" value = "회원정보수정" /></p>
 </form>

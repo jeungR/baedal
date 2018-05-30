@@ -9,41 +9,53 @@
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
 
+<br />
 <div class="gallery" align = center>
-  <a target="_blank" href="<%=application.getContextPath() %>/resources/image/chicken.jpg">
-    <img src="<%=application.getContextPath() %>/resources/image/chicken.jpg" alt="chicken" width="300" height="200">
+  <a target="_blank" href="<%=application.getContextPath() %>/resources/image/${foodDTO.image}">
+    <img src="<%=application.getContextPath() %>/resources/image/${foodDTO.image}" alt="${foodDTO.name}" width="300" height="200">
   </a>
-  <div class="title">메뉴이름</div>
-  <div class="desc">가격: 500원</div>
+  <div class="title">${foodDTO.name}</div>
+  <div class="desc">가격: ${foodDTO.price}원</div>
 </div>
 
+<form action="">
+<input type="hidden" name="code" value="${foodDTO.code}"/>
+<input type="hidden" name="restaurant_code" value="${foodDTO.restaurant_code}"/>
 <table align = center>
-  
-  	<td>수량 : <select name="number">
-  	 <option>1</option>
-  	 <option>2</option>
-  	 <option>3</option>
-  	 <option>4</option>
-  	 <option>5</option>
-  	 <option>6</option>
-  	 <option>7</option>
-  	 <option>8</option>
-  	 <option>9</option>
-  	 <option>10</option>
+  <tr>
+  	<td>수량 : <select name="number" id="number" onchange="calculate()">
+  	 <option value="1" selected>1</option>
+  	 <option value="2">2</option>
+  	 <option value="3">3</option>
+  	 <option value="4">4</option>
+  	 <option value="5">5</option>
+  	 <option value="6">6</option>
+  	 <option value="7">7</option>
+  	 <option value="8">8</option>
+  	 <option value="9">9</option>
+  	 <option value="10">10</option>
   	</select></td>
   </tr>
   <tr>
-  	<td>총 금액 : <input type = "text" name = "price"></td>
+  	<td>총 금액 : <input type = "text" id="totalprice" name = "totalprice"></td>
   </tr>
   <tr>
-  	<td><a href="MenuCheck.jsp"><input type="submit" value = "장바구니담기"></a> </td>
- 
-  <td> <a href="Order.jsp"><input type="submit" value = "주문하기"></a></td>
+  	<td><input type="submit" value = "장바구니담기" onclick='this.form.action="MenuCheck_BasketInsert.do";'></td>
+  	<td><input type="submit" value = "주문하기" onclick='this.form.action="MenuCheck_BasketInsertOrderSearch.do";'></td>
   </tr>
-  </table>
-
+</table>
+</form>
 
 
 
 </body>
+<script>
+function calculate() {
+    var price = ${foodDTO.price};
+    var number = document.getElementById("number").value;
+    var total = price * number;
+    document.getElementById("totalprice").value = total;
+}
+calculate();
+</script>
 </html>

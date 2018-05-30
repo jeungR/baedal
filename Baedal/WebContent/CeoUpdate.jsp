@@ -6,25 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>공급자 회원가입</title>
+<title>공급자 회원가입 수정</title>
 </head>
 <body>
 
-<form action = "MemberCeo_CeoInsert.do" method="post" name="ceoform" enctype="multipart/form-data"> 
+<form action = "CEOHome_Update.do" method="post" name="ceoform" enctype="multipart/form-data"> 
 
 <Table>
 <tr>
 <br><br>
 	<td>ID : </td>
-	<td><input type = text name = id size = 20 value = "${ceoId}" required readonly="readonly"></td>
+	<td><input type = text name = id size = 20 value = "${CeoUpdateView.id}" required readonly="readonly"></td>
 </tr>
 <tr>
 	<td>비밀번호 : </td>
-	<td colspan="2"><input type = password name = password size = 20 required><br></td>
+	<td colspan="2"><input type = password name = password value = "${CeoUpdateView.password}" size = 20 required><br></td>
 </tr>
 <tr>
 	<td>비밀번호 확인 : </td>
-	<td colspan="2"><input type = password name = passwordcheck size = 20 required><br><br></td>
+	<td colspan="2"><input type = password name = passwordcheck  size = 20 required><br><br></td>
 </tr>
 <tr>
 	<td colspan = "3"><hr><br></td>
@@ -34,11 +34,11 @@
 	</tr>
 <tr>
 	<td>상호명 : </td>
-	<td><input type = text name = name size = 20 required></td>
+	<td><input type = text name = name size = 20 value = "${CeoUpdateView.name}" required></td>
 </tr>
 <tr>
 	<td>메인사진 : </td>
-	<td><input type = "file" name = image accept = "image/gif,image/jpeg,image/png" value = "사진첨부"><br></td>
+	<td><input type = "file" name = image value = "${CeoUpdateView.image}" accept = "image/gif,image/jpeg,image/png" value = "사진첨부"><br></td>
 </tr>
 <tr>
 	<td> 업종 : </td>
@@ -51,19 +51,19 @@
 </tr>
 <tr>
 	<td>주소 : </td>
-	<td colspan="2"><input type = text name = address size = 50 required><br></td>
+	<td colspan="2"><input type = text name = address value = "${CeoUpdateView.address}" size = 50 required><br></td>
 </tr>
 <tr>
 	<td>전화번호 : </td>
-	<td colspan="2"><input type = text name = phone size = 20 required><br></td>
+	<td colspan="2"><input type = text name = phone value = "${CeoUpdateView.phone}" size = 20 required><br></td>
 </tr>
 <tr>
 	<td>배달팁 : </td>
-	<td colspan="2"><input type="number" name = tip size = 20 required><br></td>
+	<td colspan="2"><input type= "number" value = "${CeoUpdateView.tip}" name = tip size = 20 required><br></td>
 </tr>
 <tr>
 
-	<td><input type = submit value = "확인"></td>
+	<td><input type = submit value = "수정"></td>
 	</tr>
 </Table>
 </form>

@@ -13,10 +13,13 @@ import com.bigdata.command.CeoHome_MenuInfoDeleteCommand;
 import com.bigdata.command.CeoHome_OrderMenuViewCommand;
 import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
+import com.bigdata.command.CeoUpdate_CeoUpdateViewCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
 import com.bigdata.command.CustomerUpdate_CustomerSelectCommnad;
+import com.bigdata.command.CustomerUpdate_CustomerUpdateCommand;
 import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
+//github.com/jeungR/baedal.git
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
@@ -24,9 +27,11 @@ import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
+import com.bigdata.command.MenuCheck_BasketInsertCommand;
+import com.bigdata.command.MenuCheck_ViewCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
-import com.bigdata.command.MenuSelect_SubMenuViewCommand;
 import com.bigdata.command.MyPage_HistorySearchCommand;
+import com.bigdata.command.Order_BasketDeleteCommand;
 import com.bigdata.command.Order_BasketSearchCommand;
 
 /**
@@ -63,12 +68,13 @@ public class FrontController extends HttpServlet {
 		case("/Login_LoginCustomer.do"):
 			Command = new Login_LoginCustomerCommand();
 			Command.execute(request, response);
-			viewPage = "CustomerHome_RestaurantView.do";
+			viewPage = "CustomerHome_RestaurantView.do?type=한식";
 			break;
 		case("/CustomerHome_RestaurantView.do"):
 			Command = new CustomerHome_RestaurantViewCommand();
 			Command.execute(request, response);
 			viewPage = "CustomerHome.jsp";
+			//viewPage = "CeoHome_OrderMenuView.do";
 			break; 
 		case("/Login_LoginCeo.do"):
 			Command = new Login_LoginCeoCommand();
@@ -89,13 +95,13 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
 			break; 
-		case("/MemberCeo_CeoUpdate.do")://ceo 정보수정 클릭시 ceo홈으로 
+		case("/MemberCeo_CeoUpdate.do"):
 			Command = new CeoUpdate_CeoUpdateCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
 			break; 
 		case("/MemberCustomer_CustomerUpdate.do"):
-			Command = new CustomerUpdate_CustomerUpdateCommnad();
+			Command = new CustomerUpdate_CustomerUpdateCommand();
 			Command.execute(request, response);
 			viewPage = "Mypage.jsp";
 			break; 
@@ -124,9 +130,15 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "CeoHome_OrderMenuView.do";
 			break; 
-		case("/CEOHome_Update.do"): //회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
+		case("/CEOHome_UpdateView.do"): //회원정보수정 클릭시 ceoview해주러가는길
+			Command = new CeoUpdate_CeoUpdateViewCommand();
 			Command.execute(request, response);
 			viewPage = "CeoUpdate.jsp";
+			break; 	
+		case("/CEOHome_Update.do"): //회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
+			Command = new CeoUpdate_CeoUpdateCommand();
+			Command.execute(request, response);
+			viewPage = "CEOHome.jsp";
 			break; 
 		case("/CEOHome_MenuAdd.do"): //메뉴추가 클릭시 MenuAdd창으로 넘어가야함
 			Command.execute(request, response);
@@ -136,12 +148,6 @@ public class FrontController extends HttpServlet {
 			Command = new MenuAdd_MenuInsertCommand();
 			Command.execute(request, response);
 			viewPage = "CeoHome_OrderMenuView.do";
-			break;
-		case("/MenuSelect_MenuViewCommand.do"):
-			Command = new MenuSelect_MenuViewCommnad();
-			Command = new MenuSelect_SubMenuViewCommand();
-			Command.execute(request, response);
-			viewPage = "MenuSelect.jsp";
 			break;
 		case("/MyPage_HistorySearch.do"):
 			Command = new MyPage_HistorySearchCommand();
@@ -162,6 +168,30 @@ public class FrontController extends HttpServlet {
 			Command = new CustomerUpdate_CustomerUpdateCommnad();
 			Command.execute(request, response);
 			viewPage = "MyPage_HistorySearch.do";
+		case("/MenuCheck_BasketInsert.do"):
+			Command = new MenuCheck_BasketInsertCommand();
+			Command.execute(request, response);
+			viewPage = "MenuSelect_MenuView.do?code="+request.getParameter("restaurant_code");
+			break;
+		case("/Order_BasketDelete.do"):
+			Command = new Order_BasketDeleteCommand();
+			Command.execute(request, response);
+			viewPage = "Order_BasketSearch.do";
+			break;
+		case("/MenuCheck_BasketInsertOrderSearch.do"):
+			Command = new MenuCheck_BasketInsertCommand();
+			Command.execute(request, response);
+			viewPage = "Order_BasketSearch.do";
+			break;
+		case("/MenuSelect_MenuView.do"):
+			Command = new MenuSelect_MenuViewCommnad();
+			Command.execute(request, response);
+			viewPage = "MenuSelect.jsp";
+			break;
+		case("/MenuCheck_View.do"):
+			Command = new MenuCheck_ViewCommand();
+			Command.execute(request, response);
+			viewPage = "MenuCheck.jsp";
 			break;
 		default:
 			break;

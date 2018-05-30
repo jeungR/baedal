@@ -34,7 +34,7 @@ public class MenuSelectDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select * from baedal.food where restaurant_code = ? and category = '주메뉴'";
+			String query = "select * from baedal.food where restaurant_code = ? and type = '주메뉴'";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, restaurant_code);
 			resultSet = preparedStatement.executeQuery();
@@ -77,7 +77,7 @@ public class MenuSelectDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select * from baedal.food where restaurant_code = ? and category = '사이드'";
+			String query = "select * from baedal.food where restaurant_code = ? and type = '사이드'";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, restaurant_code);
 			resultSet = preparedStatement.executeQuery();

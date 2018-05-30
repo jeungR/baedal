@@ -1,8 +1,8 @@
 package com.bigdata.DTO;
 
 public class BasketDTO {
+	String code;
 	String food_name;
-	String food_code;
 	String basket_number;
 	int food_price;
 	
@@ -10,20 +10,31 @@ public class BasketDTO {
 		super();
 	}
 
+	
+	public BasketDTO(String food_name, String basket_number, int food_price, String code) {
+		super();
+		this.food_name = food_name;
+		this.basket_number = basket_number;
+		this.food_price = food_price;
+		this.code = code;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+
 	public String getFood_name() {
 		return food_name;
 	}
 
 	public void setFood_name(String food_name) {
 		this.food_name = food_name;
-	}
-
-	public String getFood_code() {
-		return food_code;
-	}
-
-	public void setFood_code(String food_code) {
-		this.food_code = food_code;
 	}
 
 	public String getBasket_number() {
