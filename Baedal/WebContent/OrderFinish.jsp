@@ -9,7 +9,7 @@
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
 
-<h3>주문완료</h3>
-주문이 완료되었습니다 ^________^
+<h3 align = center>주문완료</h3>
+<center>주문이 완료되었습니다 ^________^</center>
 </body>
 </html>
