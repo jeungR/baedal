@@ -36,7 +36,7 @@ public class OrderDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select baedal.food.name, baedal.basket.number, (basket.number * food.price) subtotalprice "
+			String query = "select baedal.food.name, baedal.basket.code, baedal.basket.number, (basket.number * food.price) subtotalprice "
 					+ "from baedal.food, baedal.basket "
 					+ "where baedal.basket.customer_code=? and baedal.food.code = baedal.basket.food_code ";
 
@@ -49,7 +49,8 @@ public class OrderDAO {
 				String food_name = resultSet.getString("food.name");
 				String basket_number = resultSet.getString("basket.number");
 				int food_price = resultSet.getInt("subtotalprice");
-				BasketDTO dto = new BasketDTO(food_name, basket_number, food_price);
+				String code = resultSet.getString("basket.code");
+				BasketDTO dto = new BasketDTO(food_name, basket_number, food_price, code);
 				dtos.add(dto);
 			}
 		} catch (Exception e) {
