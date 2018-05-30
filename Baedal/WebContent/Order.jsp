@@ -59,7 +59,7 @@
 		확인 및 결제진행 동의 (필수) <br> <br>
 		<table>
 			<tr>
-				<td colspan=2>+ 배달팁: <input type=text name=tip size=5 value="${tip}">
+				<td colspan=2>+ 배달팁: <input type=text name=tip id="tip" size=5 value="${tip}">
 					원
 				</td>
 			</tr>
@@ -70,7 +70,7 @@
 			<form action = "Order_OrderInsert.do" method="post">
 			<table>
 			<tr>
-				<td>총 금액 : <input type=text name=total2 size=20></td>
+				<td>총 금액 : <input type=text name=total2 id="tiptotalprice" size=20></td>
 				<td><input type=submit value='주문하기'></td>
 			</tr>
 		</table>
@@ -84,12 +84,15 @@
 function calculate() {
     var table = document.getElementById("itemtable");
     var sumVal = 0;
+    var tip = document.getElementById("tip").value;
     
     for(var i = 1; i<table.rows.length; i++){
     	sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
     }
     
     document.getElementById("totalprice").value = sumVal;
+    document.getElementById("tiptotalprice").value = sumVal+parseInt(tip);
+    
 }
 calculate();
 </script>
