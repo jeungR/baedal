@@ -15,6 +15,7 @@ import com.bigdata.command.CeoHome_OrderOkCommand;
 import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
+import com.bigdata.command.CustomerUpdate_CustomerSelectCommnad;
 import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
@@ -151,6 +152,16 @@ public class FrontController extends HttpServlet {
 			Command = new Order_BasketSearchCommand();
 			Command.execute(request, response);
 			viewPage = "Order.jsp";
+			break;
+		case("/CustomerUpdate_CustomerSelect.do"):
+			Command = new CustomerUpdate_CustomerSelectCommnad();
+			Command.execute(request, response);
+			viewPage = "CustomerUpdate.jsp";
+			break;
+		case("/CustomerUpdate_CustomerUpdate.do"):
+			Command = new CustomerUpdate_CustomerUpdateCommnad();
+			Command.execute(request, response);
+			viewPage = "MyPage_HistorySearch.do";
 			break;
 		default:
 			break;

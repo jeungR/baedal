@@ -16,6 +16,17 @@ public class CustomerDTO {
 	public CustomerDTO() {
 		super();
 	}
+	
+
+	public CustomerDTO(String name, String id, String password,  String mobile, String address) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.address = address;
+		this.mobile = mobile;
+		this.name = name;
+	}
+
 
 	public String getCode() {
 		return code;

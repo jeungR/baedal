@@ -45,7 +45,7 @@
 
 <h3>개인정보</h3>
 <table>
-<tr><td>ID : </td><td><input type = "text" name = id value="${customerId}" readonly="readonly"></td><td><a href="CustomerUpdate.jsp"><input type = "submit" value = "회원정보수정"></a></td>
+<tr><td>ID : </td><td><input type = "text" name = id value="${customerId}" readonly="readonly"></td><td><a href="CustomerUpdate_CustomerSelect.do"><input type = "submit" value = "회원정보수정"></a></td>
 </tr>
 <tr><td>등급 : </td><td><input type = "text" name = vip value="${MyPage.vip }" readonly="readonly"></td>
 </tr>
