@@ -11,11 +11,12 @@ public class BasketDTO {
 	}
 
 	
-	public BasketDTO(String food_name, String basket_number, int food_price) {
+	public BasketDTO(String food_name, String basket_number, int food_price, String code) {
 		super();
 		this.food_name = food_name;
 		this.basket_number = basket_number;
 		this.food_price = food_price;
+		this.code = code;
 	}
 
 	public String getCode() {
