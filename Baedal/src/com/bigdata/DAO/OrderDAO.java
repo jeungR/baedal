@@ -159,7 +159,7 @@ public class OrderDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "insert into customer(code, totalprice, time, address, startdate, payment, restaurant_code, customer_code) values (?, ?, ?, ?, ?, ?, ?, ?) ";
+			String query = "insert into order(code, totalprice, time, address, startdate, payment, restaurant_code, customer_code) values (?, ?, ?, ?, ?, ?, ?, ?) ";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, code);
 			preparedStatement.setString(2, totalprice);

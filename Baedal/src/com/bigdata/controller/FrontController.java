@@ -28,6 +28,7 @@ import com.bigdata.command.MenuCheck_BasketInsertCommand;
 import com.bigdata.command.MenuCheck_ViewCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
 import com.bigdata.command.MyPage_HistorySearchCommand;
+import com.bigdata.command.Order_BasketDeleteCommand;
 import com.bigdata.command.Order_BasketSearchCommand;
 
 /**
@@ -158,6 +159,11 @@ public class FrontController extends HttpServlet {
 			Command = new MenuCheck_BasketInsertCommand();
 			Command.execute(request, response);
 			viewPage = "MenuSelect_MenuView.do?code="+request.getParameter("restaurant_code");
+			break;
+		case("/Order_BasketDelete.do"):
+			Command = new Order_BasketDeleteCommand();
+			Command.execute(request, response);
+			viewPage = "Order_BasketSearch.do";
 			break;
 		case("/MenuCheck_BasketInsertOrderSearch.do"):
 			Command = new MenuCheck_BasketInsertCommand();

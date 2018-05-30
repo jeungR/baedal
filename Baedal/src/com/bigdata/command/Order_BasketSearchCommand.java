@@ -5,11 +5,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bigdata.DAO.MyPageDAO;
 import com.bigdata.DAO.OrderDAO;
 import com.bigdata.DTO.BasketDTO;
 import com.bigdata.DTO.CustomerDTO;
-import com.bigdata.DTO.HistoryDTO;
 
 public class Order_BasketSearchCommand implements Command {
 
