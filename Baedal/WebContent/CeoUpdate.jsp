@@ -304,7 +304,6 @@ a.button:hover {
   	
     <div class="custom-select" style="width:200px;">
   <select name = "type">
-    <option>가게타입</option>
     <option>한식</option>
     <option>중식</option>
     <option>양식</option>
