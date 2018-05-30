@@ -51,7 +51,7 @@ table.ex1 {width:98%; margin:0 auto; text-align:right; border-collapse:collapse}
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
 
-	      <h2>장바구니(주문내역)</h2>
+	      <h2 align = "center">장바구니(주문내역)</h2>
       <table cellspacing='0' id="itemtable" class = ex1>
       <thead>
          <tr>
