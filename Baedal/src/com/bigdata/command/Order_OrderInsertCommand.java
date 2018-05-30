@@ -11,17 +11,22 @@ public class Order_OrderInsertCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 
-		String code = request.getParameter("code");
-		String totalprice = request.getParameter("totalprice");
-		String time = request.getParameter("time");
+		String mobile = request.getParameter("mobile");
 		String address = request.getParameter("address");
-		String startdate = request.getParameter("startdate");
 		String payment = request.getParameter("payment");
+		String totaltipprice = request.getParameter("totaltipprice");
+		String cookingtime = request.getParameter("cookingtime");
 		String restaurant_code = request.getParameter("restaurant_code");
 		String customer_code = (String) request.getSession().getAttribute("customerCode");
+		String food_code = request.getParameter("food_code");
+		String number = request.getParameter("number");
 		
 		OrderDAO orderDAO= new OrderDAO();
-		orderDAO.OrderInsert(code, totalprice, time, address, startdate, payment, restaurant_code, customer_code);
+		orderDAO.OrderInsert(mobile, address, payment, totaltipprice, cookingtime, restaurant_code, customer_code);
+		String order_code = orderDAO.selectOrderCode(customer_code, restaurant_code);
+		orderDAO.insertBasketToMenu(order_code, customer_code, restaurant_code);
+		orderDAO.BasketAllDelete(customer_code);
+
 	}
 
 }

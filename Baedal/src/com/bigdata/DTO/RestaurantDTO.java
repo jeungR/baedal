@@ -13,7 +13,9 @@ public class RestaurantDTO {
 	String tip;
 	String image;
 	
-	
+	public RestaurantDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 	public RestaurantDTO(String code, String name, String image, String tip, String type) {

@@ -51,92 +51,83 @@ table.ex1 {width:98%; margin:0 auto; text-align:right; border-collapse:collapse}
 </head>
 <%@include file="/resources/module/menubar.jsp"%>
 
-	<form action="OrderFinish" method=post>
-		<h2 align="center">장바구니(주문내역)</h2>
-		<table cellspacing='0' id="itemtable" class = ex1>
-			<thead>
-			<tr>
-				<th align=center>메뉴</th>
-				<th align=center>수량</th>
-				<th align=center>금액</th>
-				<th align=center>취소</th>
-			</tr>
-			</thead>
-				<c:forEach var="item" items="${BasketSearch }" >
-			<tr>
-				<td align = "center">${item.food_name }</td>
-				<td align = "center">${item.basket_number }</td>
-				<td align = "center">${item.food_price }</td>
-				<td align=center><input type="button" value='취소' class = "button button1" onclick="location.href='Order_BasketDelete.do?code=${item.code}'"/></td>
-			</tr>
-				</c:forEach>
-		</table>
-		<br>
-			</form>
-			
-			<form action = "MenuSelect.jsp" method="post">
-		<table  align = "center">
-			<tr>
-				<td><input type=submit value='메뉴추가' class = "button button1"></td>
-				<td>총 금액 : <input type=text name=total1 id="totalprice" size=20></td>
-			</tr>
-		</table>
-				
-		<br>
-		<table align = "center">
-			<tr>
-				<td>Mobile</td>
-				<td><input type=text name=mobile value="${Order.mobile}" size=20></td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td><input type=text name=address value="${Order.address}" size=40></td>
-			</tr>
-			<tr>
-				<td>결제방법</td>
-				<td><input type="radio" name="fruit" value="app" /> 앱에서 결제 <input
-					type="radio" name="fruit" value="man" /> 만나서 결제</td>
-			</tr>
-		</table>
-		<table align = "center">
-		<tr>
-		<td><input type="checkbox" name="chk" value="chk"> 구매조건 확인 및 결제진행 동의 (필수)</td></tr>
-		</table>
-		<table align = "center">
-			<tr>
-				<td colspan=2>+ 배달팁: <input type=text name=tip id="tip" size=5 value="${tip}">
-					원
-				</td>
-			</tr>
-			
-			</table>
-			</form>
-			
-			<form action = "Order_OrderInsert.do" method="post">
-			<table align = "center">
-			<tr>
-				<td>총 금액 : <input type=text name=total2 id="tiptotalprice" size=20></td>
-				<td><input type=submit value='주문하기' class = "button button1"></td>
-			</tr>
-		</table>
-		</form>
-
-
-
+	      <h2>장바구니(주문내역)</h2>
+      <table cellspacing='0' id="itemtable" class = ex1>
+      <thead>
+         <tr>
+            <th align=center>메뉴</th>
+            <th align=center>조리시간</th>
+            <th align=center>수량</th>
+            <th align=center>금액</th>
+            <th align=center>취소</th>
+         </tr>
+         </thead>
+            <c:forEach var="item" items="${BasketSearch }" >
+         <tr align = "center">
+            <td>${item.food_name }</td>
+            <td>${item.food_cookingtime }</td>
+            <td>${item.basket_number }</td>
+            <td>${item.food_price }</td>
+            <td align=center><input type="button" value='취소' class = "button button1" onclick="location.href='Order_BasketDelete.do?code=${item.code}'"/></td>
+         </tr>
+            </c:forEach>
+      </table>
+      <br>
+         
+     <span style="float:right"> <input type="button" value='메뉴추가' class = "button button1" onclick="location.href='MenuSelect_MenuView.do?code=${restaurantDTO.code}'"><br /></span>
+    	<center>  총 금액 : <input type=text name=total1 id="totalprice" size=20><br /></center>
+      <form action="Order_OrderInsert.do" method=post>
+     	<center> 최대 조리시간 : <input type=text name=cookingtime id="cookingtime" size=20><br /></center>
+   
+      <input type="hidden" name="restaurant_code" value="${restaurantDTO.code}"/>
+     <center> <table>
+         <tr>
+            <td>Mobile</td>
+            <td><input type=text name=mobile value="${Order.mobile}" size=20></td>
+         </tr>
+         <tr>
+            <td>주소</td>
+            <td><input type=text name=address value="${Order.address}" size=40></td>
+         </tr>
+         <tr>
+            <td>결제방법</td>
+            <td><input type="radio" name="payment" value="app" /> 앱에서 결제 <input
+               type="radio" name="payment" value="man" /> 만나서 결제</td>
+         </tr>
+      </table></center>
+      <br> <center><input type="checkbox" name="chk" value="chk"> 구매조건 확인 및 결제진행 동의 (필수)</center> <br> <br>
+      <table align = "center">
+         <tr>
+            <td colspan=2>+ 배달팁: <input type=text name=tip id="tip" size=5 value="${restaurantDTO.tip}">
+               원
+            </td>
+         </tr>
+      </table>
+      
+      <table align = "center">
+         <tr>
+            <td>총 금액 : <input type=text name=totaltipprice id="totaltipprice" size=20></td>
+            <td><input type=submit value='주문하기' class = "button button1"></td>
+         </tr>
+      </table>
+      </form>
 
 </body>
 <script>
 function calculate() {
     var table = document.getElementById("itemtable");
     var sumVal = 0;
+    var maxVal = 0;
     var tip = document.getElementById("tip").value;
     
     for(var i = 1; i<table.rows.length; i++){
-    	sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
+       sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
+       maxVal = Math.max(maxVal, parseInt(table.rows[i].cells[1].innerHTML));
     }
     
     document.getElementById("totalprice").value = sumVal;
-    document.getElementById("tiptotalprice").value = sumVal+parseInt(tip);
+    document.getElementById("cookingtime").value = maxVal;
+    document.getElementById("totaltipprice").value = sumVal+parseInt(tip);
     
 }
 calculate();

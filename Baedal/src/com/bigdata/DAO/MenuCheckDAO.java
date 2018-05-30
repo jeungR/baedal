@@ -67,10 +67,6 @@ public class MenuCheckDAO {
 		
 	}
 	
-	public void SumPrice() {
-		
-	}
-	
 	public void BasketInsert(String food_code, String food_restaurant_code, String number, String customer_code) {
 		// 주문하기, 장바구니 담기 클릭시 Insert 되어야함
 		Connection connection = null;

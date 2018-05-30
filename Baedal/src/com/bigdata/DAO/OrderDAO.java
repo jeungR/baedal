@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 
 import com.bigdata.DTO.BasketDTO;
 import com.bigdata.DTO.CustomerDTO;
+import com.bigdata.DTO.RestaurantDTO;
 
 public class OrderDAO {
 	public DataSource dataSource = null;
@@ -36,7 +37,7 @@ public class OrderDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select baedal.food.name, baedal.basket.code, baedal.basket.number, (basket.number * food.price) subtotalprice "
+			String query = "select baedal.food.name, baedal.food.cookingtime, baedal.basket.code, baedal.basket.number, (basket.number * food.price) subtotalprice "
 					+ "from baedal.food, baedal.basket "
 					+ "where baedal.basket.customer_code=? and baedal.food.code = baedal.basket.food_code ";
 
@@ -47,10 +48,11 @@ public class OrderDAO {
 			dtos = new ArrayList<BasketDTO>();
 			while (resultSet.next()) { // 보안사항 추가
 				String food_name = resultSet.getString("food.name");
+				String food_cookingtime = resultSet.getString("food.cookingtime");
 				String basket_number = resultSet.getString("basket.number");
 				int food_price = resultSet.getInt("subtotalprice");
 				String code = resultSet.getString("basket.code");
-				BasketDTO dto = new BasketDTO(food_name, basket_number, food_price, code);
+				BasketDTO dto = new BasketDTO(food_name, basket_number, food_price, code, food_cookingtime);
 				dtos.add(dto);
 			}
 		} catch (Exception e) {
@@ -142,7 +144,7 @@ public class OrderDAO {
 			return dto;
 		}
 
-	public String selectTip(String customer_code) {
+	public RestaurantDTO selectTip(String customer_code) {
 		Connection connection = null; 
 		PreparedStatement preparedStatement = null; 
 		ResultSet resultSet = null; 
@@ -150,14 +152,17 @@ public class OrderDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "SELECT tip FROM restaurant WHERE code=(SELECT food_restaurant_code FROM basket WHERE customer_code =? LIMIT 1);";
+			String query = "SELECT code, tip FROM restaurant WHERE code=(SELECT food_restaurant_code FROM basket WHERE customer_code =? LIMIT 1);";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, customer_code);
 			resultSet = preparedStatement.executeQuery();
 			
+			RestaurantDTO restaurantDTO = new RestaurantDTO();
 			if(resultSet.next()) {
-				String tip = resultSet.getString("tip");
-				return tip;
+				restaurantDTO.setCode(resultSet.getString("code"));
+				restaurantDTO.setTip(resultSet.getString("tip"));
+				
+				return restaurantDTO;
 			}
 			
 		} catch (Exception e) {
@@ -175,8 +180,7 @@ public class OrderDAO {
 	}
 	
 
-	public void OrderInsert(String code, String totalprice, String time, String address, String startdate,
-			String payment, String restaurant_code, String customer_code) {
+	public void OrderInsert(String mobile, String address, String payment, String totalprice, String cookingtime, String restaurant_code, String customer_code) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -184,16 +188,15 @@ public class OrderDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "insert into order(code, totalprice, time, address, startdate, payment, restaurant_code, customer_code) values (?, ?, ?, ?, ?, ?, ?, ?) ";
+			String query = "insert into baedal.order(mobile, address, startdate, payment, totalprice, cookingtime, restaurant_code, customer_code) values (?, ?, now(), ?, ?, ?, ?, ?) ";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, code);
-			preparedStatement.setString(2, totalprice);
-			preparedStatement.setString(3, time);
-			preparedStatement.setString(4, address);
-			preparedStatement.setString(5, startdate);
-			preparedStatement.setString(6, payment);
-			preparedStatement.setString(7, restaurant_code);
-			preparedStatement.setString(8, customer_code);
+			preparedStatement.setString(1, mobile);
+			preparedStatement.setString(2, address);
+			preparedStatement.setString(3, payment);
+			preparedStatement.setString(4, totalprice);
+			preparedStatement.setString(5, cookingtime);
+			preparedStatement.setString(6, restaurant_code);
+			preparedStatement.setString(7, customer_code);
 			preparedStatement.executeUpdate();
 
 		} catch (Exception e) {
@@ -212,39 +215,105 @@ public class OrderDAO {
 		}
 	}
 
-	public boolean BasketAllDelete(String customer_code) {
-			Connection connection = null;
-			PreparedStatement preparedStatement = null;
-			ResultSet resultSet = null;
+	public String selectOrderCode(String customer_code, String restaurant_code) {
+		Connection connection = null; 
+		PreparedStatement preparedStatement = null; 
+		ResultSet resultSet = null; 
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "SELECT code FROM baedal.order WHERE customer_code=? AND restaurant_code=? ORDER BY startdate DESC LIMIT 1";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, customer_code);
+			preparedStatement.setString(2, restaurant_code);
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				String order_code = resultSet.getString("code");
+				
+				return order_code;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { 
+				if(resultSet != null) resultSet.close(); 
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+	public void insertBasketToMenu(String order_code, String customer_code, String restaurant_code) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "INSERT INTO baedal.menu( order_code, food_code, number) SELECT ?, food_code, number FROM basket WHERE customer_code=? AND food_restaurant_code=?;";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, order_code);
+			preparedStatement.setString(2, customer_code);
+			preparedStatement.setString(3, restaurant_code);
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				connection = dataSource.getConnection();
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public boolean BasketAllDelete(String customer_code) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 
-				String query = "DELETE FROM basket WHERE customer_code=? ";
-				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, customer_code);
-				int result = preparedStatement.executeUpdate();
+		try {
+			connection = dataSource.getConnection();
 
-				if (result != 0) {
-					return true;
-				}
+			String query = "DELETE FROM basket WHERE customer_code=? ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, customer_code);
+			int result = preparedStatement.executeUpdate();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (resultSet != null)
-						resultSet.close();
-					if (preparedStatement != null)
-						preparedStatement.close();
-					if (connection != null)
-						connection.close();
-				} catch (Exception e2) {
-					e2.printStackTrace();
-				}
+			if (result != 0) {
+				return true;
 			}
 
-			return false;
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 
+		return false;
+	}
+	
 }
