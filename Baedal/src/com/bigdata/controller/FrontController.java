@@ -28,8 +28,10 @@ import com.bigdata.command.MenuCheck_BasketInsertCommand;
 import com.bigdata.command.MenuCheck_ViewCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
 import com.bigdata.command.MyPage_HistorySearchCommand;
+import com.bigdata.command.Order_BasketAllDeleteCommand;
 import com.bigdata.command.Order_BasketDeleteCommand;
 import com.bigdata.command.Order_BasketSearchCommand;
+import com.bigdata.command.Order_OrderInsertCommand;
 
 /**
  * Servlet implementation class BFrontController
@@ -165,6 +167,16 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "Order_BasketSearch.do";
 			break;
+//		case("/Order_OrderInsert.do"):
+//			Command = new Order_OrderInsertCommand();
+//			Command.execute(request, response);
+//			viewPage = "Order_BasketAllDelete.do?code=";
+//			break;
+//		case("/Order_BasketAllDelete.do"):
+//			Command = new Order_BasketAllDeleteCommand();
+//			Command.execute(request, response);
+//			viewPage = "OrderFinish.jsp";
+//			break;
 		case("/MenuCheck_BasketInsertOrderSearch.do"):
 			Command = new MenuCheck_BasketInsertCommand();
 			Command.execute(request, response);

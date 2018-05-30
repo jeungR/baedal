@@ -71,7 +71,7 @@
 			<table>
 			<tr>
 				<td>총 금액 : <input type=text name=total2 id="tiptotalprice" size=20></td>
-				<td><input type=submit value='주문하기'></td>
+				<td><input type="button" value='주문하기' onclick="location.href='Order_OrderInsert.do?code=${item.code}'"/></td>
 			</tr>
 		</table>
 		</form>

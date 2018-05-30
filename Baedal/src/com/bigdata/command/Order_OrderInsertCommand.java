@@ -19,9 +19,11 @@ public class Order_OrderInsertCommand implements Command {
 		String payment = request.getParameter("payment");
 		String restaurant_code = request.getParameter("restaurant_code");
 		String customer_code = (String) request.getSession().getAttribute("customerCode");
+		String food_code = request.getParameter("food_code");
+		String number = request.getParameter("number");
 		
 		OrderDAO orderDAO= new OrderDAO();
-		orderDAO.OrderInsert(code, totalprice, time, address, startdate, payment, restaurant_code, customer_code);
+		orderDAO.OrderInsert(code, totalprice, time, address, startdate, payment, restaurant_code, customer_code, food_code, number);
 	}
 
 }
