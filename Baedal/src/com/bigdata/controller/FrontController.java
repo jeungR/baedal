@@ -16,7 +16,10 @@ import com.bigdata.command.CeoUpdate_CeoUpdateCommand;
 import com.bigdata.command.CeoUpdate_CeoUpdateViewCommand;
 import com.bigdata.command.Command;
 import com.bigdata.command.CustomerHome_RestaurantViewCommand;
+import com.bigdata.command.CustomerUpdate_CustomerSelectCommnad;
 import com.bigdata.command.CustomerUpdate_CustomerUpdateCommand;
+import com.bigdata.command.CustomerUpdate_CustomerUpdateCommnad;
+//github.com/jeungR/baedal.git
 import com.bigdata.command.Login_LoginCeoCommand;
 import com.bigdata.command.Login_LoginCustomerCommand;
 import com.bigdata.command.MemberCeo_CeoInsertCommand;
@@ -94,7 +97,7 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "Login.jsp";
 			break; 
-		case("/MemberCeo_CeoUpdate.do")://ceo 정보수정 클릭시 ceo홈으로 
+		case("/MemberCeo_CeoUpdate.do"):
 			Command = new CeoUpdate_CeoUpdateCommand();
 			Command.execute(request, response);
 			viewPage = "CEOHome.jsp";
@@ -135,8 +138,9 @@ public class FrontController extends HttpServlet {
 			viewPage = "CeoUpdate.jsp";
 			break; 	
 		case("/CEOHome_Update.do"): //회원정보수정 클릭시 CeoUpdate창으로 넘어가야함
+			Command = new CeoUpdate_CeoUpdateCommand();
 			Command.execute(request, response);
-			viewPage = "CeoHome.jsp";
+			viewPage = "CEOHome.jsp";
 			break; 
 		case("/CEOHome_MenuAdd.do"): //메뉴추가 클릭시 MenuAdd창으로 넘어가야함
 			Command.execute(request, response);
@@ -157,6 +161,15 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "Order.jsp";
 			break;
+		case("/CustomerUpdate_CustomerSelect.do"):
+			Command = new CustomerUpdate_CustomerSelectCommnad();
+			Command.execute(request, response);
+			viewPage = "CustomerUpdate.jsp";
+			break;
+		case("/CustomerUpdate_CustomerUpdate.do"):
+			Command = new CustomerUpdate_CustomerUpdateCommnad();
+			Command.execute(request, response);
+			viewPage = "MyPage_HistorySearch.do";
 		case("/MenuCheck_BasketInsert.do"):
 			Command = new MenuCheck_BasketInsertCommand();
 			Command.execute(request, response);
