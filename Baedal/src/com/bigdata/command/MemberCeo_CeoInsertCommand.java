@@ -28,7 +28,7 @@ public class MemberCeo_CeoInsertCommand implements Command {
 		String address = multipartRequest.getParameter("address");
 		String phone = multipartRequest.getParameter("phone");
 		String tip = multipartRequest.getParameter("tip");
-		String image = multipartRequest.getFilesystemName("image") == null ? "patato.jpg" : multipartRequest.getFilesystemName("image");
+		String image = multipartRequest.getFilesystemName("image") == null ? "default_restaurant.jpg" : multipartRequest.getFilesystemName("image");
 		
 		MemberCeoDAO ceoDAO = new MemberCeoDAO();
 		ceoDAO.CeoInsert(id, password, name, type, address, phone, tip, image);

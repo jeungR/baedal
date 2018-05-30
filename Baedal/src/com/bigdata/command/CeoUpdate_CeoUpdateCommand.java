@@ -1,25 +1,41 @@
 package com.bigdata.command;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.DAO.CeoUpdateDAO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class CeoUpdate_CeoUpdateCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		String ceoid = (String)request.getSession().getAttribute("ceoid");
+		String ceoid = (String)request.getSession().getAttribute("ceoId");
+
+		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/image/");
+		MultipartRequest multipartRequest = null;
+		try {
+			multipartRequest = new MultipartRequest(request, uploadPath, 1024*1024*20, "utf-8",  new DefaultFileRenamePolicy());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		String password = multipartRequest.getParameter("password");
+		String name = multipartRequest.getParameter("name");
+		String type = multipartRequest.getParameter("type");
+		String address = multipartRequest.getParameter("address");
+		String phone = multipartRequest.getParameter("phone");
+		String tip = multipartRequest.getParameter("tip");
+		String image = multipartRequest.getFilesystemName("image") == null ? "default_restaurant.jpg" : multipartRequest.getFilesystemName("image");
+		System.out.println("command ceoid" + ceoid);
+		System.out.println("command" + password);
 		
-		String password = request.getParameter("pw");
-		String name = request.getParameter("name");
-		String type = request.getParameter("type");
-		String address = request.getParameter("address");
-		String mobile = request.getParameter("mobile");
-		String image = request.getParameter("image");
 		CeoUpdateDAO cUDao = new CeoUpdateDAO();
-		cUDao.CeoUpdate(password, name, type, address, mobile, image, ceoid);
+		cUDao.CeoUpdate(ceoid, password, name, address, phone, type, tip, image);
+		
 	}
 
 }
