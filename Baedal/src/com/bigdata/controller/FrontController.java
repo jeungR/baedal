@@ -24,10 +24,10 @@ import com.bigdata.command.MemberCeo_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_IdCheckCommand;
 import com.bigdata.command.MemberCustomer_UserInsertCommand;
 import com.bigdata.command.MenuAdd_MenuInsertCommand;
+import com.bigdata.command.MenuCheck_BasketInsertCommand;
 import com.bigdata.command.MenuCheck_ViewCommand;
 import com.bigdata.command.MenuSelect_MenuViewCommnad;
 import com.bigdata.command.MyPage_HistorySearchCommand;
-import com.bigdata.command.Order_BasketInsertCommand;
 import com.bigdata.command.Order_BasketSearchCommand;
 
 /**
@@ -154,13 +154,13 @@ public class FrontController extends HttpServlet {
 			Command.execute(request, response);
 			viewPage = "Order.jsp";
 			break;
-		case("/Order_BasketInsert.do"):
-			Command = new Order_BasketInsertCommand();
+		case("/MenuCheck_BasketInsert.do"):
+			Command = new MenuCheck_BasketInsertCommand();
 			Command.execute(request, response);
 			viewPage = "MenuSelect_MenuView.do?code="+request.getParameter("restaurant_code");
 			break;
-		case("/Order_BasketInsertSearch.do"):
-			Command = new Order_BasketInsertCommand();
+		case("/MenuCheck_BasketInsertOrderSearch.do"):
+			Command = new MenuCheck_BasketInsertCommand();
 			Command.execute(request, response);
 			viewPage = "Order_BasketSearch.do";
 			break;

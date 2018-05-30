@@ -71,4 +71,37 @@ public class MenuCheckDAO {
 		
 	}
 	
+	public void BasketInsert(String food_code, String food_restaurant_code, String number,
+			String customer_code) {
+		// 주문하기, 장바구니 담기 클릭시 Insert 되어야함
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "insert into basket(food_code, food_restaurant_code, customer_code, number) values (?, ?, ?, ?) ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, food_code);
+			preparedStatement.setString(2, food_restaurant_code);
+			preparedStatement.setString(3, customer_code);
+			preparedStatement.setString(4, number);
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
 }

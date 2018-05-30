@@ -29,6 +29,8 @@
 				</c:forEach>
 		</table>
 		<br>
+			</form>
+			
 			<form action = "MenuSelect.jsp" method="post">
 		<table>
 			<tr>
@@ -36,16 +38,16 @@
 				<td>총 금액 : <input type=text name=total1 id="totalprice" size=20></td>
 			</tr>
 		</table>
-				</form>
+				
 		<br>
 		<table>
 			<tr>
 				<td>Mobile</td>
-				<td><input type=text name=mobile size=20></td>
+				<td><input type=text name=mobile value="${Order.mobile}" size=20></td>
 			</tr>
 			<tr>
 				<td>주소</td>
-				<td><input type=text name=address size=40></td>
+				<td><input type=text name=address value="${Order.address}" size=40></td>
 			</tr>
 			<tr>
 				<td>결제방법</td>
@@ -61,14 +63,20 @@
 					원
 				</td>
 			</tr>
+			</table>
+			</form>
+			
+			<form action = "Order_OrderInsert.do" method="post">
+			<table>
 			<tr>
 				<td>총 금액 : <input type=text name=total2 size=20></td>
 				<td><input type=submit value='주문하기'></td>
 			</tr>
 		</table>
+		</form>
 
 
-	</form>
+
 
 </body>
 <script>

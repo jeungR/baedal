@@ -40,7 +40,7 @@
   	<td>총 금액 : <input type = "text" id="totalprice" name = "totalprice"></td>
   </tr>
   <tr>
-  	<td><input type="submit" value = "장바구니담기" onclick='this.form.action="Order_BasketInsert.do";'></td>
+  	<td><input type="submit" value = "장바구니담기" onclick='this.form.action="MenuCheck_BasketInsert.do";'></td>
   	<td><input type="submit" value = "주문하기" onclick='this.form.action="Order_BasketInsertSearch.do";'></td>
   </tr>
 </table>

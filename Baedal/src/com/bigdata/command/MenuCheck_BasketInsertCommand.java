@@ -4,9 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bigdata.DAO.MemberCustomerDAO;
+import com.bigdata.DAO.MenuCheckDAO;
 import com.bigdata.DAO.OrderDAO;
 
-public class Order_BasketInsertCommand implements Command {
+public class MenuCheck_BasketInsertCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -16,8 +17,8 @@ public class Order_BasketInsertCommand implements Command {
 		String customer_code = (String) request.getSession().getAttribute("customerCode");
 		String number = request.getParameter("number");
 		
-		OrderDAO orderDAO= new OrderDAO();
-		orderDAO.BasketInsert(code, restaurant_code, number, customer_code);
+		MenuCheckDAO menuCheckDAO = new MenuCheckDAO();
+		menuCheckDAO.BasketInsert(code, restaurant_code, number, customer_code);
 	}
 
 }
