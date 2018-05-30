@@ -57,7 +57,7 @@ public class CustomerUpdateDAO {
 	
 	
 	
-	public CustomerDTO UserInfoSearch(String customerId) {
+	public CustomerDTO CustomerSelect(String customerId) {
 		CustomerDTO dto = null; //데이터 한줄씩 보임
 		Connection connection = null; //연결
 		PreparedStatement preparedStatement = null; //준비

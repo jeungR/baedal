@@ -83,9 +83,6 @@ public class MemberCeoDAO {
 			}
 		}
 	}
-	
-	public void InsertFieldCheck() {
-		
-	}
+
 	
 }
