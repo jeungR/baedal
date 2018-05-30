@@ -56,16 +56,18 @@ public class CeoUpdateDAO {
 		}
 	}
 	
-	public ArrayList<RestaurantDTO> CeoUpdateView(String ceo_code){
-		ArrayList<RestaurantDTO> dtos = new ArrayList<RestaurantDTO>();
+	public RestaurantDTO CeoUpdateView(String ceo_code){
+		RestaurantDTO dtos = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
+		
+		
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select id, password, name, address, phone, type, tip, image from baedal.restaurant where ceo_code = "+ ceo_code;
+			String query = "select id, password, name, address, phone, type, tip, image from baedal.restaurant where code = ? ";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, ceo_code);
 			resultSet = preparedStatement.executeQuery();
@@ -80,8 +82,7 @@ public class CeoUpdateDAO {
 				String tip = resultSet.getString("tip");
 				String image = resultSet.getString("image");
 				
-				RestaurantDTO dto = new RestaurantDTO(id, password, name, address, phone, type, tip, image);
-				dtos.add(dto);
+				dtos = new RestaurantDTO(id, password, name, address, phone, type, tip, image);
 				
 			}
 			
