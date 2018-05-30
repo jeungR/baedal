@@ -11,5 +11,10 @@
 
 <h3 align = center>주문완료</h3>
 <center>주문이 완료되었습니다 ^________^</center>
+<br>
+<br>
+
+
+<center><img src="<%= application.getContextPath() %>/resources/image/배달이2.png" width="400px" align="middle"></center>
 </body>
 </html>
