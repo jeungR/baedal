@@ -290,7 +290,7 @@ a.button:hover {
 
   ID &nbsp;&nbsp; <input type="text" name="id" id="name" value = "${CeoUpdateView.id}" required/>
   <input type = button value = "중복확인" class="button button1" onclick="checkId(this.form)">
-  <BR>
+  <BR>0
   PW &nbsp;&nbsp;<input type="password" name="password" id="name" value = "${CeoUpdateView.password}" required/>
   <BR>
   PW확인 &nbsp;&nbsp;<input type="password" name="passwordcheck" id="name"  required/>
