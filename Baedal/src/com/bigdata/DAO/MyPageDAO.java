@@ -34,7 +34,7 @@ public class MyPageDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select baedal.order.code, baedal.restaurant.name, baedal.food.Name, baedal.menu.number, baedal.order.totalprice, baedal.order.startdate, baedal.order.ok "
+			String query = "select baedal.order.code, baedal.restaurant.name, baedal.food.Name, baedal.menu.number, baedal.food.price, baedal.order.startdate, baedal.order.ok "
 					+ "from baedal.order, menu, food, restaurant "
 					+ "where baedal.order.customer_code=? and baedal.order.code = menu.order_code and menu.food_code = food.code and food.restaurant_code = restaurant.code ";
 
@@ -48,7 +48,7 @@ public class MyPageDAO {
 				String restaurtant_name = resultSet.getString("restaurant.name");
 				String food_name = resultSet.getString("food.Name");
 				String menu_number = resultSet.getString("menu.number");
-				int totalprice = resultSet.getInt("order.totalprice");
+				int totalprice = resultSet.getInt("food.price");
 				String startdate = resultSet.getString("order.startdate");
 				String ok = resultSet.getString("order.ok");
 				HistoryDTO dto = new HistoryDTO(order_code, restaurtant_name, food_name, menu_number, totalprice, startdate, ok);
